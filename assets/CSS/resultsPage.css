@@ -1,0 +1,12 @@
+body{ background-image: url(../CSS/bg.jpg);
+    background-size: cover;
+    background-position:top;
+    font-family:"outfit", sans-serif;
+}
+#logo{
+    height: 3rem;
+    margin-top:3rem;
+    margin-left:7rem;
+    margin-bottom:7rem;
+    
+}

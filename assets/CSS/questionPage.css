@@ -1,0 +1,5 @@
+body{ background-image: url(../CSS/bg.jpg);
+    background-size: cover;
+    background-position:top;
+    font-family:"outfit", sans-serif;
+}
