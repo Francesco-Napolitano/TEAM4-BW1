@@ -64,23 +64,6 @@ section {
   height: 250px;
 }
 
-#h1QuestionTitle {
-  font-size: 3rem;
-}
-
-#questionImage img {
-  width: 300px;
-  border: 2px solid #b51289;
-  border-radius: 10px;
-}
-
-#textualAnswer {
-  margin: 0 2rem;
-}
-
-#h1QuestionTitle span {
-  font-weight: bold;
-}
 #divMessage {
   height: 1.5rem;
   text-align: center;
@@ -94,22 +77,12 @@ section {
   text-align: center;
 }
 
-#questionImage,
-#textualAnswer {
-  display: inline-block;
-  vertical-align: top;
-}
-
 input[type='radio'],
 input[type='checkbox'] {
   accent-color: #b51289;
   /* Cambia il colore degli input selezionati */
   width: 20px;
   height: 20px;
-}
-
-.questionAnswers {
-  margin-top: 10px;
 }
 
 button {
