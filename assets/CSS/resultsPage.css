@@ -1,5 +1,5 @@
 #title {
-    font-family: 'Outfit';
+  font-family: 'outfit', sans-serif;
 }
 
 #title > h1 {
@@ -11,20 +11,79 @@
 }
 
 #content {
-  display: inline-block;
+  text-align: center;
 }
 
 #correctAnswers {
   text-align: left;
+  display: inline-block;
+
+  line-height: 3rem;
+}
+
+#correctAnswers,
+#wrongAnswers {
+  font-size: 3rem;
 }
 
 #graphic {
   text-align: center;
+  display: inline-block;
+  width: 250px;
+  height: 250px;
+  margin: 0 170px;
+  position: relative;
 }
 
 #wrongAnswers {
   text-align: right;
+  display: inline-block;
+  line-height: 3rem;
+}
+
+#correctAnswers,
+#graphic,
+#wrongAnswers {
+  vertical-align: middle;
+}
+
+#graphic > div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 250px;
+  font-size: 1rem;
+  line-height: 1.2em;
+}
+
+#graphic > div > p:first-child {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+#graphic > div > p:nth-of-type(2) {
+  font-size: 1.5rem;
+  color: cyan;
+  margin-bottom: 1.5rem;
+}
+
+#correctPercentage,
+#wrongPercentage {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+#wrongNumber,
+#correctNumber {
+  font-size: 1rem;
+  font-weight: lighter;
 }
 
 #trasparent {
+  background: transparent;
+  box-shadow: none;
+  border: solid white 1px;
+  color: white;
+  font-weight: 500;
 }
