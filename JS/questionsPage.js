@@ -41,7 +41,7 @@ const selectQuestions = (
   // nell'array delle domande preselzezionate
   for (
     let i = 0;
-    i < Math.max(numberOfQuestions, preSelectionArray.length);
+    i < Math.min(numberOfQuestions, preSelectionArray.length);
     i++
   ) {
     // Ricalcola la lunghezza dell'array perché ad ogni cliclo viene eliminato un elemento
@@ -60,7 +60,7 @@ const selectQuestions = (
 // Funzione che mostra la domanda corrente popolando i DV della pagina
 const showQuestion = (selectedQuestionsArray, questionNumber) => {
   const question = selectedQuestionsArray[questionNumber]
-  w('currentQuestion is:', question)
+  // w('currentQuestion is:', question)
 
   // leva eventuali caratteri speciali dal testo della risposta per evitare problemi nell'html della label
   const questionTextEscaped = escapeHTML(question.questionText)
@@ -69,8 +69,11 @@ const showQuestion = (selectedQuestionsArray, questionNumber) => {
     /\*\*(.*?)\*\*/g,
     '<span>$1</span>'
   )
-  const h2QuestionTitle = document.getElementById('h1QuestionTitle')
-  h2QuestionTitle.innerHTML = questionTexEscapedAndSpanned
+  // w('questionTexEscapedAndSpanned: ', questionTexEscapedAndSpanned)
+
+  const h1QuestionTitle = document.getElementsByTagName('h1')[0]
+  h1QuestionTitle.innerHTML = questionTexEscapedAndSpanned
+  w('h1QuestionTitle: ', h1QuestionTitle)
 
   // Se la domanda ha un'immagine la mostra dopo avere comunque svuotato il contenitore
   const questionImage = document.getElementById('questionImage')
@@ -126,27 +129,56 @@ const readUserAnswers = (questionsArray, currentQuestionIndex) => {
   w('currentQuestionIndex', currentQuestionIndex)
 
   const question = questionsArray[currentQuestionIndex]
-  w('question', question)
+  // w('question', question)
+
+  // Inizializza l'array delle risposte date dall'utente
+  const givenAnswerArray = []
+  // Estrae dall'array delle domande le risposte alla domanda corrente date dall'utente
   const answers = question.answers
+
+  // Esegue un loop sugli input delle risposte per vedere quali sono state selezionate
   answers.forEach((answer, index) => {
     const currentAnswer = document.getElementById(
       `inputAnswer-${currentQuestionIndex}-${index}`
     )
+    // Se l'input è selezionato lo aggiunge all'array delle risposte date dall'utente
+    // esempio: data risposta 1 e 2, l'array sarà [0: true, 1: true]
     if (currentAnswer.checked) {
       w(`inputAnswer-${currentQuestionIndex}-${index}`, currentAnswer.checked)
       selectedQuestionsArray[currentQuestionIndex].userAnswers[index] = true
+
+      // Popola l'array delle risposte date dall'utente
+      // che verrà confrontato che verrà confrontato con l'array delle risposte corrette
+      givenAnswerArray.push(index)
+      w('givenAnswerArray: ', givenAnswerArray)
     }
   })
   w('selectedQuestionsArray', selectedQuestionsArray)
 
-  // calcola il punteggio della domanda che è semplicemente pari al numero delle risposte corrette date dall'utente
-  // nella pagina dei risultati verrano calcolati gli score totali
-  const score = question.answers.filter((answer, index) => {
-    return (
-      answer.isCorrect ===
-      selectedQuestionsArray[currentQuestionIndex].userAnswers[index]
-    )
-  }).length
+  // Crea l'array delle risposte corrette (indici delle risposte corrette) che verrà confrontato
+  // con l'array degli indici delle risposte date
+  let correctAnswerArray = []
+  question.answers.forEach((answer, index) => {
+    if (answer.isCorrect === true) {
+      correctAnswerArray.push(index)
+    }
+  })
+  w('correctAnswerArray: ', correctAnswerArray)
+
+  // Confronta l'array delle risposte date dall'utente con l'array delle risposte corrette
+  // e assegna uno score alla domanda.
+  // per il confronto dell'array uso JSON.stringify() per poter confrontare delle stringhe senza fare un loop
+  // su tutti i valori di un attay perché non ho trovato un metodo di confronto diretto
+  if (JSON.stringify(correctAnswerArray) === JSON.stringify(givenAnswerArray)) {
+    w('Risposta corretta')
+    selectedQuestionsArray[currentQuestionIndex].questionScore = 1
+  } else {
+    w('Risposta sbagliata')
+    selectedQuestionsArray[currentQuestionIndex].questionScore = 0
+  }
+
+  // Visualizza l'arrray delle domande e delle risposte date dall'utente con relativo score
+  w('selectedQuestionsArray: ', selectedQuestionsArray)
 }
 
 //
