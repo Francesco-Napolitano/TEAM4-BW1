@@ -1,72 +1,43 @@
-body{ background-image: url(/assets/img/bg.jpg);
-    background-size: cover;
-    background-position:top;
-    font-family:"outfit", sans-serif;
-}
-
-#logo{
-    height: 3rem;
-    margin-top:3rem;
-    margin-left:7rem;
-    margin-bottom:7rem;
+h1{
+    text-align: left;
+    font-size:4rem;
+    font-family: 'outfit', sans-serif;
     
 }
-h1{    
-    color: white;
-    font-size: 60px;}
-    h1 span {
-        font-weight:bold;
-    }
-
-    h2 {
-        
-        color:#D20094;
-        font-size:30px;
-        margin-top: 2rem;
-        font-weight:600;
-    }
-    p{color:white;
-        line-height:1.3rem;
-    
-font-size:15px;
-margin-top:1rem;}
-
-ul{margin-top:4rem;
-}
-li{
-    color: white;
-    font-size:15px;
-    line-height:1.3rem;
-    
-}
-li span {
+.bold{
     font-weight:bold;
 }
 
-#checkBox{
-    font-family:"outfit";
-    border: 1px solid white;
-    margin-top:4rem;
-    display:inline-block;
+h2{    color: #D20094;
+    font-weight: bold;
+font-size:2rem;
+font-family:'outfit',sans-serif;}
+
+p {margin-top:1rem;
+    line-height:1.3rem;
+    font-family:'inter',sans-serif;
+    font-size:1rem;
+    
 }
+#list {
+    margin-top:2.5rem;
+    margin-left:1rem;
+    line-height:1.3rem;
+    
+    
+}
+ul {list-style:disc;
+line-height:2rem;
+font-family:'inter',sans-serif;}
 
-label{color:white;
-font-size:15px;}
 
-#procedi{
+#littleSquare{display:inline-block;}
+#checkBox{
     display:inline-block;
-    margin-left:20rem;
-    height:3rem;
-    width:13rem;
-    background-color:#00FFFF;
-    font-family:"outfit", sans-serif;
-    font-weight:800;
-    font-size:20px;
-    background-color: #00FFFF;
-    border:none;
-    box-shadow:
-      0 0 3px #00FFFF,
-      0 0 20px #00FFFF,
-      0 0 45px #00FFFF,
-      0 0 180px #00FFFF;
-  }
+outline:2px solid #e7e7eb;
+  width: 20px;
+  height: 20px;
+
+}
+button {display:inline-block;
+margin-left:10rem;}
