@@ -1,22 +1,63 @@
-body{ background-image: url(../CSS/bg.jpg);
-    background-size: cover;
-    background-position:top;
-    font-family:"outfit", sans-serif;
-}
-button {
-    display:inline-block;
-    margin-left:20rem;
-    height:3rem;
-    width:10rem;
-    background-color:#00FFFF;
-    font-family:"outfit", sans-serif;
-    font-weight:800;
-    font-size:large;
-    background-color: #00FFFF;
-    border:none;
-    box-shadow:
-      0 0 3px #00FFFF,
-      0 0 20px #00FFFF,
-      0 0 45px #00FFFF,
-      0 0 180px #00FFFF;
+
+  #container {
+    width: 50%;
   }
+  
+  h1{
+    font-size: 3em;
+    font-weight: bold;
+  }
+
+
+
+#content{
+    margin: 0;
+    height: 18em;
+
+}
+header{
+    height: 10em;
+}
+
+  #content p{
+    font-size: 1.55em;
+    text-align: center;
+    padding: 0;
+  }
+
+  #title{
+    height: 4.5em;
+  }
+
+  .fas {
+    padding: 0.05em;
+    color: #000000b0;
+  }
+
+  #star{
+    text-align: center;
+    font-size: 3em;
+    margin-top: 0.5em;
+  }
+
+  label {
+    margin: 3em 0 1.5em;
+    display: block;
+    text-align: center;
+    font-size: 1.55em;
+  }
+
+form{
+    border-bottom: 3px solid purple;
+    padding-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 0.5em 1.5em;
+    background: transparent;
+    border: none;
+    color: #E7E7EB;
+    outline: none;
+}
+
