@@ -5,11 +5,15 @@ h1 {
 h1 span {
   font-weight: bold;
 }
+#content {
+  text-align: center;
+}
 
 #questionImage,
 #textualAnswer {
   display: inline-block;
   vertical-align: top;
+  text-align: left;
 }
 
 #questionImage img {
