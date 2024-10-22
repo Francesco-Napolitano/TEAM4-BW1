@@ -45,8 +45,7 @@ const calculateResultsAndBuildTable = () => {
             </th>
         </tr > `
 
-  questionsAndAnswers.forEach((question, qIndex) => {
-    w('qIndex: ', qIndex)
+  questionsAndAnswers.forEach((question) => {
     w('question: ', question)
 
     // Valorizzo la variabile perché mi servirà all'interno del loop for delle risposte
@@ -55,17 +54,12 @@ const calculateResultsAndBuildTable = () => {
     // Incrementa il numero totale delle domande
     totalQuestions++
 
-    // Setta l'esito della domanda attuanle
-    let currentIsCorrect = false
-
     // Incrementa il numero delle risposte corrette
     if (question.questionScore === 1) {
       correctAnswers++
-      currentIsCorrect = true
     } else {
       // Incrementa il numero delle risposte sbagliate
       wrongAnswers++
-      currentIsCorrect = false
     }
 
     // Aumenta il punteggio totale delle risposte corrette
@@ -75,7 +69,7 @@ const calculateResultsAndBuildTable = () => {
     // insieme al testo della domanda
     resultsHTML += `
             <tr class="thQuestionText ${
-              currentIsCorrect === true ? 'trIsCorrect' : 'trIsIncorrect' // Inserisce la classe corrispondente all'esito delle risposte
+              question.questionScore === 1 ? 'trIsCorrect' : 'trIsIncorrect' // Inserisce la classe corrispondente all'esito delle risposte
             }">
             <td colspan="3">${escapeHTML(question.questionText)}</td>
             </tr>
@@ -87,6 +81,46 @@ const calculateResultsAndBuildTable = () => {
     //      - una X rossa se l'utente ha sbagliato o un baffo verde se l'utente ha rispoisto giusto,
     //        oppure nulla se l'utente non ha dato quella risposta
     question.answers.forEach((answer, aIndex) => {
+      //
+      // Setta la variabile che indica la correttezza della risposta data all'opzopme presa in esame ora
+      let currentUserAnswerIsCorrect = false
+
+      // TABELLA RISULTATI
+      // +---------------------+-----------------+-----------------+
+      // |                     |      Data       |     NON Data    |
+      // +---------------------+-----------------+-----------------+
+      // | Risp. Giusta        |      true       |      null       |
+      // +---------------------+-----------------+-----------------+
+      // | Risp. NON Giusta    |      false      |      null       |
+      // +---------------------+-----------------+-----------------+
+      //
+      // E Vaffanculo al tempo che ho perso a fare a caso!!!
+      //
+
+      if (
+        answer.isCorrect === true &&
+        currentQuestion.userAnswers[aIndex] === true
+      ) {
+        currentUserAnswerIsCorrect = true
+      } else if (
+        answer.isCorrect === true &&
+        currentQuestion.userAnswers[aIndex] === false
+      ) {
+        currentUserAnswerIsCorrect = null
+      } else if (
+        answer.isCorrect === false &&
+        currentQuestion.userAnswers[aIndex] === true
+      ) {
+        currentUserAnswerIsCorrect = false
+      } else if (
+        answer.isCorrect === false &&
+        currentQuestion.userAnswers[aIndex] === false
+      ) {
+        currentUserAnswerIsCorrect = null
+      }
+
+      w('currentUserAnswerIsCorrect: ', currentUserAnswerIsCorrect)
+
       // Crea il testo della domanda
       resultsHTML += `<td>${escapeHTML(answer.text)}</td>`
       // inserisce sel la risposta è corretta lo indica con un cerchio
@@ -98,13 +132,11 @@ const calculateResultsAndBuildTable = () => {
 
       // Se la risposta è corretta e l'utente ha risposto correttamente allora inserisce un baffo
       // altrimenti una croce, oppure nulla se l'utente non ha dato quella risposta
-      if (currentQuestion.userAnswers[aIndex] === answer.isCorrect) {
+      if (currentUserAnswerIsCorrect === true) {
         resultsHTML += `<td><span class="cyan"><i class="fa-solid fa-check"></i></span></td>`
-      } else if (currentQuestion.userAnswers[aIndex] !== answer.isCorrect) {
+      } else if (currentUserAnswerIsCorrect === false) {
         resultsHTML += `<td><span class="fucsiaColor"><i class="fa-solid fa-xmark"></i></span></td>`
-      } else if (currentQuestion.userAnswers[aIndex]) {
-        resultsHTML += `<td><span class="fucsiaColor"><i class="fa-solid fa-xmark"></i></span></td>`
-      } else {
+      } else if (currentUserAnswerIsCorrect === null) {
         resultsHTML += '<td></td>'
       }
 
@@ -114,6 +146,7 @@ const calculateResultsAndBuildTable = () => {
   }) // chiude questionsAndAnswers
 
   lastSection.innerHTML = `<table>${resultsHTML}</table>`
+  lastSection.style.display = 'none'
 }
 
 //
@@ -135,9 +168,10 @@ let resultsHTML = ''
 const questionsAndAnswers = JSON.parse(
   localStorage.getItem('questionsAndAnswers')
 )
+w('questionsAndAnswers: ', questionsAndAnswers)
 
 // Individia il DIV messaggio
-const message = document.getElementById('divMessage')
+const divMessage = document.getElementById('divMessage')
 
 //individua la sezione lastSection
 const lastSection = document.getElementById('lastSection')
@@ -153,3 +187,17 @@ const lastSection = document.getElementById('lastSection')
 // w('questionsAndAnswers: ', questionsAndAnswers)
 
 addEventListener.onload = calculateResultsAndBuildTable()
+
+divMessage.innerHTML = `
+    Hai risposto correttamente a ${correctAnswers} domande su ${totalQuestions}.<br/>
+    <span class="fucsiaColor">Clicca per vedere i risultati dettagliati</span>.
+    `
+divMessage.style.cursor = 'pointer'
+
+divMessage.addEventListener('click', () => {
+  if (lastSection.style.display === 'block') {
+    lastSection.style.display = 'none'
+    return
+  }
+  lastSection.style.display = 'block'
+})

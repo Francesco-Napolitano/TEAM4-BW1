@@ -151,6 +151,10 @@ const readUserAnswers = (questionsArray, currentQuestionIndex) => {
       // che verrà confrontato che verrà confrontato con l'array delle risposte corrette
       givenAnswerArray.push(index)
       w('givenAnswerArray: ', givenAnswerArray)
+    } else {
+      // comunque popolo la posizione dell'array corrispondente alla risposta non data
+      // servirà nella schermata dei risultati per costruire la tabella delle risposte
+      selectedQuestionsArray[currentQuestionIndex].userAnswers[index] = false
     }
   })
   w('selectedQuestionsArray', selectedQuestionsArray)
