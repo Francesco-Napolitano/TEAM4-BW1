@@ -9,6 +9,9 @@
     height: 20em;
 
 }
+header{
+    height: 10em;
+}
 
   #content p{
     font-size: 1.55em;
