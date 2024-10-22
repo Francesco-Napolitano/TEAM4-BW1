@@ -1,58 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Page</title>
-    <style>
-        html {
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-            font-size: 1rem;
-        }
-
-        #container {
-            margin-top: 20%;
-            margin-left: auto;
-            margin-right: auto;
-            width: 65%;
-        }
-
-        #questionImage,
-        #textualAnswer {
-            display: inline-block;
-            vertical-align: top;
-        }
-
-        input[type="radio"],
-        input[type="checkbox"] {
-            accent-color: #4CAF50;
-            /* Cambia il colore degli input selezionati */
-            width: 20px;
-            height: 20px;
-        }
-
-        .questionAnswers {
-            margin-top: 10px;
-        }
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/CSS/reset.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../assets/CSS/reset.css" />
+    <link rel="stylesheet" href="../assets/CSS/questionPage.css" />
 </head>
 
 <body>
+    <header>
+        <div id="divLogo">
+            <img id="logo" src="/assets/img/epicode_logo.png" alt="logo-epicode" />
+        </div>
+        <div id="divTimer">0:00
+        </div>
+    </header>
     <main>
         <div id="container">
-            <div id="divQuestionTitle">
-                <h2 id="h2QuestionTitle">Domanda</h2>
-            </div>
-            <div id="divQuestionAnswers">
+            <section id="title">
+                <h1 id="h1QuestionTitle">Domanda</h1>
+            </section>
+            <section id="content">
                 <div id="questionImage">
                 </div>
                 <div id="textualAnswer">
                 </div>
-            </div>
-            <div id="divNextQuestionButton"><button id="nextQuestionButton">Prossima</button></div>
-            <div id="divQuestionNumber">Domanda x/n</div>
+            </section>
+            <section id="button">
+                <div id="divMessage"></div>
+                <button id="nextQuestionButton">Prossima</button>
+            </section>
+            <section id="lastSection"></section>
         </div>
     </main>
 </body>

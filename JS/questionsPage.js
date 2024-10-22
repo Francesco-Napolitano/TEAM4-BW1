@@ -38,7 +38,7 @@ const selectQuestions = (questionsArray, numberOfQuestions) => {
 const showQuestion = (selectedQuestionsArray, questionNumber) => {
   const question = selectedQuestionsArray[questionNumber]
   w('currentQuestion is:', question)
-  const h2QuestionTitle = document.getElementById('h2QuestionTitle')
+  const h2QuestionTitle = document.getElementById('h1QuestionTitle')
   h2QuestionTitle.innerText = question.questionText
 
   // Se la domanda ha un'immagine la mostra dopo avere comunque svuotato il contenitore
@@ -67,15 +67,20 @@ const showQuestion = (selectedQuestionsArray, questionNumber) => {
     answerHTML += `
     <!-- aperto divAnswer-${questionNumber}-${index} -->
     <div class="questionAnswers" id="divAnswer-${questionNumber}-${index}">
-        <input type="${inputType}" id="answer-${questionNumber}-${index}" name="answer-${questionNumber}-${index}" value="1"
+        <input type="${inputType}" id="inputAnswer-${questionNumber}-${index}" name="answer-${questionNumber}" value="1"
          />
-        <label for="answer-${questionNumber}-${index}">${escapedLabel}</label>
+        <label for="inputAnswer-${questionNumber}-${index}">${escapedLabel}</label>
     </div>
     <!-- chiuso divAnswer-${questionNumber}-${index} -->`
   })
 
   // Inserisce il codice HTML delle risposte nel div 'textualAnswer'
   textualAnswer.innerHTML = answerHTML
+
+  sectionLastSection.innerHTML = `DOMANDA ${
+    questionNumber + 1
+  } <span class="fucsiaColor">/ ${numberOfQuestions}</span>`
+
   //
 }
 
@@ -86,19 +91,23 @@ const showQuestion = (selectedQuestionsArray, questionNumber) => {
 // passare questi parametri non sarebbe strattamente necessario perché si potrebbero leggere direttamente
 // ma preferisco passarli per avere una funzione più generica e una funzione che accetta gli stessi parametri
 // di showQuestion()
-const readUserAnswers = (selectedQuestionsArray, currentQuestionIndex) => {
+const readUserAnswers = (questionsArray, currentQuestionIndex) => {
+  w('currentQuestionIndex', currentQuestionIndex)
+
   const userAnswers = []
-  const question = selectedQuestionsArray[currentQuestionIndex]
+  const question = questionsArray[currentQuestionIndex]
+  w('question', question)
   const answers = question.answers
   answers.forEach((answer, index) => {
     const currentAnswer = document.getElementById(
-      `answer-${currentQuestionIndex}-${index}`
+      `inputAnswer-${currentQuestionIndex}-${index}`
     )
     if (currentAnswer.checked) {
-      userAnswers.push(index)
+      w(`inputAnswer-${currentQuestionIndex}-${index}`, currentAnswer.checked)
+      selectedQuestionsArray[currentQuestionIndex].userAnswers[index] = true
     }
   })
-  return userAnswers
+  w('selectedQuestionsArray', selectedQuestionsArray)
 }
 
 //
@@ -121,6 +130,9 @@ const selectedQuestionsArray = selectQuestions(
   numberOfQuestions
 )
 
+// E' la variabile che collezione le risposte degli utenti ad ogni click del pulsante
+let userAnswers = []
+
 //
 // ***********************************************************************
 // Definizione degli elementi della pagina rilevanti
@@ -128,7 +140,13 @@ const selectedQuestionsArray = selectQuestions(
 //
 
 // definisce il div che contiene il testo delle domande
-divQuestionAnswers = document.getElementById('divQuestionAnswers')
+sectionTitle = document.getElementById('title')
+sectionContent = document.getElementById('content')
+sectionButton = document.getElementById('button')
+sectionLastSection = document.getElementById('lastSection')
+
+// assegna il div per poter inviare eventuali messaggi all'utente
+divMessage = document.getElementById('divMessage')
 
 // definisce il bottone
 nextQuestionButton = document.getElementById('nextQuestionButton')
@@ -156,6 +174,13 @@ nextQuestionButton.addEventListener('click', () => {
     selectedQuestionsArray,
     currentQuestionIndex
   )
+
+  if (selectedQuestionsArray[currentQuestionIndex].userAnswers.length === 0) {
+    divMessage.innerHTML = "Seleziona almeno un'opzione"
+    return
+  } else {
+    divMessage.innerHTML = ''
+  }
 
   // Verifica se la domanda corrente è l'ultima
   if (currentQuestionIndex === numberOfQuestions - 1) {
