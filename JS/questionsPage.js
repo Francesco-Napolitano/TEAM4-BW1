@@ -22,12 +22,35 @@ function escapeHTML(text) {
 }
 
 // Funzione che selezione casualmente un numero di domande dall'array di domande
-const selectQuestions = (questionsArray, numberOfQuestions) => {
+const selectQuestions = (
+  questionsArray,
+  numberOfQuestions,
+  topic,
+  difficulty
+) => {
+  // Inizializza l'array delle domande che verranno ritornate
   const questionsSelected = []
-  for (let i = 0; i < numberOfQuestions; i++) {
-    const randomIndex = Math.floor(Math.random() * questionsArray.length)
-    questionsSelected.push(questionsArray[randomIndex])
-    questionsArray.splice(randomIndex, 1)
+
+  // Crea un array di domande che hanno l'argomento e il livello di difficoltà richiesti
+  const preSelectionArray = questionsArray.filter(
+    (question) => question.topic === topic && question.difficulty === difficulty
+  )
+
+  // esegue un'estrazione randomica delle domande dall'array preSelectionArray
+  // estrae un numero di domanda pera a quelle richieste o, se inferiore, pari al numero delle domande
+  // nell'array delle domande preselzezionate
+  for (
+    let i = 0;
+    i < Math.max(numberOfQuestions, preSelectionArray.length);
+    i++
+  ) {
+    // Ricalcola la lunghezza dell'array perché ad ogni cliclo viene eliminato un elemento
+    // per evitare che venga riselezionato casualmente
+    const randomIndex = Math.floor(Math.random() * preSelectionArray.length)
+    // Aggiunge la domanda selezionata all'array delle domande selezionate
+    questionsSelected.push(preSelectionArray[randomIndex])
+    // Elimina la domanda selezionata dall'array delle domande preselezionate
+    preSelectionArray.splice(randomIndex, 1)
   }
   w(questionsSelected)
   return questionsSelected
@@ -38,8 +61,16 @@ const selectQuestions = (questionsArray, numberOfQuestions) => {
 const showQuestion = (selectedQuestionsArray, questionNumber) => {
   const question = selectedQuestionsArray[questionNumber]
   w('currentQuestion is:', question)
+
+  // leva eventuali caratteri speciali dal testo della risposta per evitare problemi nell'html della label
+  const questionTextEscaped = escapeHTML(question.questionText)
+  // Aggiunge lo <span> per evidenziare la parte più importante della domanda
+  const questionTexEscapedAndSpanned = questionTextEscaped.replace(
+    /\*\*(.*?)\*\*/g,
+    '<span>$1</span>'
+  )
   const h2QuestionTitle = document.getElementById('h1QuestionTitle')
-  h2QuestionTitle.innerText = question.questionText
+  h2QuestionTitle.innerHTML = questionTexEscapedAndSpanned
 
   // Se la domanda ha un'immagine la mostra dopo avere comunque svuotato il contenitore
   const questionImage = document.getElementById('questionImage')
@@ -94,7 +125,6 @@ const showQuestion = (selectedQuestionsArray, questionNumber) => {
 const readUserAnswers = (questionsArray, currentQuestionIndex) => {
   w('currentQuestionIndex', currentQuestionIndex)
 
-  const userAnswers = []
   const question = questionsArray[currentQuestionIndex]
   w('question', question)
   const answers = question.answers
@@ -108,6 +138,15 @@ const readUserAnswers = (questionsArray, currentQuestionIndex) => {
     }
   })
   w('selectedQuestionsArray', selectedQuestionsArray)
+
+  // calcola il punteggio della domanda che è semplicemente pari al numero delle risposte corrette date dall'utente
+  // nella pagina dei risultati verrano calcolati gli score totali
+  const score = question.answers.filter((answer, index) => {
+    return (
+      answer.isCorrect ===
+      selectedQuestionsArray[currentQuestionIndex].userAnswers[index]
+    )
+  }).length
 }
 
 //
@@ -124,10 +163,20 @@ const numberOfQuestions = 5
 // currentQuestionIndex è l'indice della domanda corrente
 let currentQuestionIndex = 0
 
+// topic è l'argomento delle domande deve essere espresso come stringa ed
+// essere ASSOLUTAMENTE identico al 'topic' riportato nel file 'questions.js'
+const topic = 'HTML, CSS, JS'
+
+// difficulty è il livello di difficoltà delle domande
+// deve essere espresso con un intero tra 1 e 3
+const difficulty = 1
+
 // questionsArray è l'array di domande selezionate
 const selectedQuestionsArray = selectQuestions(
   questionsWithImage,
-  numberOfQuestions
+  numberOfQuestions,
+  topic,
+  difficulty
 )
 
 // E' la variabile che collezione le risposte degli utenti ad ogni click del pulsante
