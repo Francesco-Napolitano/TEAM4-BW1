@@ -36,7 +36,7 @@ const selectQuestions = (
     (question) => question.topic === topic && question.difficulty === difficulty
   )
 
-  // esegue un'estrazione randomica delle domande dall'array preSelectionArray
+  // Esegue un'estrazione randomica delle domande dall'array preSelectionArray
   // estrae un numero di domanda pera a quelle richieste o, se inferiore, pari al numero delle domande
   // nell'array delle domande preselzezionate
   for (
@@ -60,7 +60,7 @@ const selectQuestions = (
 // Funzione che mostra la domanda corrente popolando i DV della pagina
 const showQuestion = (selectedQuestionsArray, questionNumber) => {
   const question = selectedQuestionsArray[questionNumber]
-  // w('currentQuestion is:', question)
+  w('showQuestion() currentQuestion is:', question)
 
   // leva eventuali caratteri speciali dal testo della risposta per evitare problemi nell'html della label
   const questionTextEscaped = escapeHTML(question.questionText)
@@ -73,7 +73,6 @@ const showQuestion = (selectedQuestionsArray, questionNumber) => {
 
   const h1QuestionTitle = document.getElementsByTagName('h1')[0]
   h1QuestionTitle.innerHTML = questionTexEscapedAndSpanned
-  w('h1QuestionTitle: ', h1QuestionTitle)
 
   // Se la domanda ha un'immagine la mostra dopo avere comunque svuotato il contenitore
   const questionImage = document.getElementById('questionImage')
@@ -126,13 +125,14 @@ const showQuestion = (selectedQuestionsArray, questionNumber) => {
 // ma preferisco passarli per avere una funzione più generica e una funzione che accetta gli stessi parametri
 // di showQuestion()
 const readUserAnswers = (questionsArray, currentQuestionIndex) => {
-  w('currentQuestionIndex', currentQuestionIndex)
+  w('readUserAnswers() currentQuestionIndex:', currentQuestionIndex)
 
   const question = questionsArray[currentQuestionIndex]
   // w('question', question)
 
   // Inizializza l'array delle risposte date dall'utente
   const givenAnswerArray = []
+
   // Estrae dall'array delle domande le risposte alla domanda corrente date dall'utente
   const answers = question.answers
 
@@ -150,14 +150,14 @@ const readUserAnswers = (questionsArray, currentQuestionIndex) => {
       // Popola l'array delle risposte date dall'utente
       // che verrà confrontato che verrà confrontato con l'array delle risposte corrette
       givenAnswerArray.push(index)
-      w('givenAnswerArray: ', givenAnswerArray)
+      w('readUserAnswers() givenAnswerArray: ', givenAnswerArray)
     } else {
       // comunque popolo la posizione dell'array corrispondente alla risposta non data
       // servirà nella schermata dei risultati per costruire la tabella delle risposte
       selectedQuestionsArray[currentQuestionIndex].userAnswers[index] = false
     }
   })
-  w('selectedQuestionsArray', selectedQuestionsArray)
+  w('readUserAnswers() selectedQuestionsArray', selectedQuestionsArray)
 
   // Crea l'array delle risposte corrette (indici delle risposte corrette) che verrà confrontato
   // con l'array degli indici delle risposte date
@@ -167,7 +167,7 @@ const readUserAnswers = (questionsArray, currentQuestionIndex) => {
       correctAnswerArray.push(index)
     }
   })
-  w('correctAnswerArray: ', correctAnswerArray)
+  w('eadUserAnswers() correctAnswerArray: ', correctAnswerArray)
 
   // Confronta l'array delle risposte date dall'utente con l'array delle risposte corrette
   // e assegna uno score alla domanda.
@@ -182,9 +182,67 @@ const readUserAnswers = (questionsArray, currentQuestionIndex) => {
   }
 
   // Visualizza l'arrray delle domande e delle risposte date dall'utente con relativo score
-  w('selectedQuestionsArray: ', selectedQuestionsArray)
+  w('readUserAnswers() selectedQuestionsArray: ', selectedQuestionsArray)
+
+  w('readUserAnswers() givenAnswerArray: ', givenAnswerArray)
+  return givenAnswerArray
 }
 
+// ***********************************************************************
+//
+// Funzione associata alla proessione del bottone per passare alla domanda successiva
+// che verifica se l'utente ha selezionato almeno una risposta.
+// Se non ha selezionato nessuna risposta visualizza un messaggio di errore a meno che
+// il parametro checkAnswerBeforeGoAhead sia impostato su false e in tal caso non fa
+// il controllo e passa alla domanda successiva.
+//
+// Questo servirà quando la funzione verrà chiamata allo scadere del timer
+//
+// ***********************************************************************
+const buttonListener = (checkAnswerBeforeGoAhead) => {
+  w('buttonListener() checkAnswerBeforeGoAhead:', checkAnswerBeforeGoAhead)
+
+  w('buttonListener() currentQuestionIndex: ', currentQuestionIndex)
+  // La prima domanda viene generata fuori dal ciclo e quindi legge
+  const userAnswers = readUserAnswers(
+    selectedQuestionsArray,
+    currentQuestionIndex
+  )
+  w('userAnswers: ', userAnswers)
+
+  if (userAnswers.length === 0 && checkAnswerBeforeGoAhead === true) {
+    divMessage.innerHTML = "Seleziona almeno un'opzione"
+    return
+  } else {
+    divMessage.innerHTML = ''
+  }
+
+  // Verifica se la domanda corrente è l'ultima in base alle domande richieste o in base alla grandezza dell'array
+  // delle domande selezionate dal pool
+  if (
+    currentQuestionIndex === selectedQuestionsArray.lenght - 1 ||
+    currentQuestionIndex === numberOfQuestions - 1
+  ) {
+    // se è l'ultima domanda salva le risposte date dall'utente
+    // e reindirizza alla pagina dei risultati
+    w('ultima domanda')
+    // Inizializza il localStorage che conterrà le domande e le risposte date dall'utente
+    localStorage.setItem('questionsAndAnswers', '')
+    // localStorage.setItem("questionsAdnAnswers", JSON.stringify(questionsAdnAnswers));
+    // questionsAndAnswers = JSON.parse(localStorage.getItem("questionsAndAnswers"));
+
+    localStorage.setItem(
+      'questionsAndAnswers',
+      JSON.stringify(selectedQuestionsArray)
+    )
+    window.location.href = 'resultsPage.html'
+  } else {
+    // se non è l'ultima domanda mostra la domanda successiva
+    currentQuestionIndex++
+    w(`questionIndex ${currentQuestionIndex} / ${numberOfQuestions - 1}`)
+    showQuestion(selectedQuestionsArray, currentQuestionIndex)
+  }
+}
 //
 // ***********************************************************************
 //
@@ -216,8 +274,8 @@ const selectedQuestionsArray = selectQuestions(
   difficulty
 )
 
-// E' la variabile che collezione le risposte degli utenti ad ogni click del pulsante
-let userAnswers = []
+// Setta il parametro per il controllo delle risposte prima di passare alla domanda successiva
+const checkAnswerBeforeGoAhead = true
 
 //
 // ***********************************************************************
@@ -254,43 +312,9 @@ showQuestion(selectedQuestionsArray, currentQuestionIndex)
 
 //
 // Aggiunge un event listener al bottone per passare alla domanda successiva
+// il parametro della funzione checkAnswerBeforeGoAhead() verifica se è impostato il controllo delle risposte
+// prima di passare alla domanda successiva. se è impoststo su false non fa il controllo.
+// Questo servirà quando la funzione verrà chiamata allo scadere del timer
 nextQuestionButton.addEventListener('click', () => {
-  // La prima domanda viene generata fuori dal ciclo e quindi legge
-  const userAnswers = readUserAnswers(
-    selectedQuestionsArray,
-    currentQuestionIndex
-  )
-
-  if (selectedQuestionsArray[currentQuestionIndex].userAnswers.length === 0) {
-    divMessage.innerHTML = "Seleziona almeno un'opzione"
-    return
-  } else {
-    divMessage.innerHTML = ''
-  }
-
-  // Verifica se la domanda corrente è l'ultima in base alle domande richieste o in base alla grandezza dell'array
-  // delle domande selezionate dal pool
-  if (
-    currentQuestionIndex === selectedQuestionsArray.lenght - 1 ||
-    currentQuestionIndex === numberOfQuestions - 1
-  ) {
-    // se è l'ultima domanda salva le risposte date dall'utente
-    // e reindirizza alla pagina dei risultati
-    w('ultima domanda')
-    // Inizializza il localStorage che conterrà le domande e le risposte date dall'utente
-    localStorage.setItem('questionsAndAnswers', '')
-    // localStorage.setItem("questionsAdnAnswers", JSON.stringify(questionsAdnAnswers));
-    // questionsAndAnswers = JSON.parse(localStorage.getItem("questionsAndAnswers"));
-
-    localStorage.setItem(
-      'questionsAndAnswers',
-      JSON.stringify(selectedQuestionsArray)
-    )
-    window.location.href = 'resultsPage.html'
-  } else {
-    // se non è l'ultima domanda mostra la domanda successiva
-    currentQuestionIndex++
-    w(`questionIndex ${currentQuestionIndex} / ${numberOfQuestions - 1}`)
-    showQuestion(selectedQuestionsArray, currentQuestionIndex)
-  }
+  buttonListener(checkAnswerBeforeGoAhead)
 })

@@ -46,7 +46,7 @@ const calculateResultsAndBuildTable = () => {
         </tr > `
 
   questionsAndAnswers.forEach((question) => {
-    w('question: ', question)
+    w('calculateResultsAndBuildTable() question: ', question)
 
     // Valorizzo la variabile perché mi servirà all'interno del loop for delle risposte
     let currentQuestion = question
@@ -71,7 +71,9 @@ const calculateResultsAndBuildTable = () => {
             <tr class="thQuestionText ${
               question.questionScore === 1 ? 'trIsCorrect' : 'trIsIncorrect' // Inserisce la classe corrispondente all'esito delle risposte
             }">
-            <td colspan="3">${escapeHTML(question.questionText)}</td>
+            <td colspan="3">${escapeHTML(
+              question.questionText.replace(/\*\*/g, '')
+            )}</td>
             </tr>
             <tr>
             `
@@ -119,7 +121,10 @@ const calculateResultsAndBuildTable = () => {
         currentUserAnswerIsCorrect = null
       }
 
-      w('currentUserAnswerIsCorrect: ', currentUserAnswerIsCorrect)
+      w(
+        'calculateResultsAndBuildTable() currentUserAnswerIsCorrect: ',
+        currentUserAnswerIsCorrect
+      )
 
       // Crea il testo della domanda
       resultsHTML += `<td>${escapeHTML(answer.text)}</td>`
