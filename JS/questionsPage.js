@@ -197,7 +197,8 @@ let currentQuestionIndex = 0
 
 // topic è l'argomento delle domande deve essere espresso come stringa ed
 // essere ASSOLUTAMENTE identico al 'topic' riportato nel file 'questions.js'
-const topic = 'HTML, CSS, JS'
+// const topic = 'HTML, CSS, JS'
+const topic = 'Cucina'
 
 // difficulty è il livello di difficoltà delle domande
 // deve essere espresso con un intero tra 1 e 3
@@ -263,8 +264,12 @@ nextQuestionButton.addEventListener('click', () => {
     divMessage.innerHTML = ''
   }
 
-  // Verifica se la domanda corrente è l'ultima
-  if (currentQuestionIndex === numberOfQuestions - 1) {
+  // Verifica se la domanda corrente è l'ultima in base alle domande richieste o in base alla grandezza dell'array
+  // delle domande selezionate dal pool
+  if (
+    currentQuestionIndex === selectedQuestionsArray.lenght - 1 ||
+    currentQuestionIndex === numberOfQuestions - 1
+  ) {
     // se è l'ultima domanda salva le risposte date dall'utente
     // e reindirizza alla pagina dei risultati
     w('ultima domanda')
@@ -277,7 +282,7 @@ nextQuestionButton.addEventListener('click', () => {
       'questionsAndAnswers',
       JSON.stringify(selectedQuestionsArray)
     )
-    // window.location.href = "resultsPage.html";
+    window.location.href = 'resultsPage.html'
   } else {
     // se non è l'ultima domanda mostra la domanda successiva
     currentQuestionIndex++

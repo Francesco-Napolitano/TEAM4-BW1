@@ -467,4 +467,177 @@ const questionsWithImage = [
     userAnswers: [],
     questionScore: 0,
   },
+  {
+    questionText:
+      "Qual è l'ingrediente principale **per fare una pizza Margherita tradizionale**?",
+    imageUrl:
+      'https://thumbs.dreamstime.com/z/fresh-ripe-organic-red-tomatoes-hot-chili-peppers-arranged-brown-mexican-italian-spanish-greek-mediterranean-cuisine-fresh-ripe-120260617.jpg?ct=jpeg',
+    answers: [
+      { text: 'Pomodoro', isCorrect: true, score: 1 },
+      { text: 'Mozzarella di bufala', isCorrect: true, score: 1 },
+      { text: 'Basilico', isCorrect: false, score: 0 },
+      { text: 'Parmigiano', isCorrect: false, score: 0 },
+    ],
+    difficulty: 1,
+    topic: 'Cucina',
+    time: 60,
+    userAnswers: [],
+    questionScore: 0,
+  },
+  {
+    questionText:
+      'Qual è la temperatura ideale **per cucinare una bistecca alla griglia**?',
+    imageUrl:
+      'https://thumbs.dreamstime.com/z/filet-mignon-tender-lean-cut-beef-tenderloin-grilled-generative-ai-filet-mignon-tender-lean-cut-beef-324118221.jpg?ct=jpeg',
+    answers: [
+      { text: '200°C', isCorrect: true, score: 1 },
+      { text: '150°C', isCorrect: false, score: 0 },
+      { text: '100°C', isCorrect: false, score: 0 },
+      { text: '250°C', isCorrect: false, score: 0 },
+    ],
+    difficulty: 1,
+    topic: 'Cucina',
+    time: 60,
+    userAnswers: [],
+    questionScore: 0,
+  },
+  {
+    questionText:
+      "Qual è l'ingrediente chiave **per ottenere un soufflé perfetto**?",
+    imageUrl:
+      'https://thumbs.dreamstime.com/z/two-portion-cheese-suffle-29937183.jpg?ct=jpeg',
+    answers: [
+      { text: 'Albumi montati a neve', isCorrect: true, score: 1 },
+      { text: 'Farina', isCorrect: false, score: 0 },
+      { text: 'Latte', isCorrect: false, score: 0 },
+      { text: 'Zucchero', isCorrect: false, score: 0 },
+    ],
+    difficulty: 1,
+    topic: 'Cucina',
+    time: 60,
+    userAnswers: [],
+    questionScore: 0,
+  },
+  {
+    questionText: 'Qual è il metodo corretto **per sfilettare un pesce**?',
+    imageUrl:
+      'https://thumbs.dreamstime.com/z/italy-venice-fish-market-4149517.jpg?ct=jpeg',
+    answers: [
+      {
+        text: 'Usare un coltello affilato e seguire la spina dorsale',
+        isCorrect: true,
+        score: 1,
+      },
+      { text: 'Tagliare il pesce a metà', isCorrect: false, score: 0 },
+      { text: 'Usare una forchetta', isCorrect: false, score: 0 },
+      { text: 'Cuocere il pesce prima', isCorrect: false, score: 0 },
+    ],
+    difficulty: 1,
+    topic: 'Cucina',
+    time: 60,
+    userAnswers: [],
+    questionScore: 0,
+  },
+  {
+    questionText:
+      'Qual è il tempo di cottura **ideale per una pasta al dente**?',
+    imageUrl:
+      'https://thumbs.dreamstime.com/z/pasta-spaghetti-bolognese-white-plate-kitchen-towel-over-white-marble-table-healthy-food-top-view-pasta-spaghetti-121471552.jpg?ct=jpeg',
+    answers: [
+      { text: '7-9 minuti', isCorrect: true, score: 1 },
+      { text: '10-12 minuti', isCorrect: false, score: 0 },
+      { text: '5-6 minuti', isCorrect: false, score: 0 },
+      { text: '13-15 minuti', isCorrect: false, score: 0 },
+    ],
+    difficulty: 1,
+    topic: 'Cucina',
+    time: 60,
+    userAnswers: [],
+    questionScore: 0,
+  },
+  {
+    questionText:
+      'Quali spezie sono essenziali **per preparare un curry tradizionale**?',
+    imageUrl:
+      'https://thumbs.dreamstime.com/z/curry-powder-12459865.jpg?ct=jpeg',
+    answers: [
+      { text: 'Curcuma, cumino, coriandolo', isCorrect: true, score: 1 },
+      { text: 'Pepe nero, cannella, zafferano', isCorrect: false, score: 0 },
+      { text: 'Rosmarino, salvia, alloro', isCorrect: false, score: 0 },
+      { text: 'Timo, maggiorana, prezzemolo', isCorrect: false, score: 0 },
+    ],
+    difficulty: 1,
+    topic: 'Cucina',
+    time: 60,
+    userAnswers: [],
+    questionScore: 0,
+  },
+  {
+    questionText:
+      'Cosa è importante **quando si prepara una maionese fatta in casa**?',
+    imageUrl:
+      'https://thumbs.dreamstime.com/z/mayonnaise-sauce-fresh-tasty-bowl-rustic-wooden-background-close-up-horizontal-67832791.jpg?ct=jpeg',
+    answers: [
+      { text: "Aggiungere l'olio lentamente", isCorrect: true, score: 1 },
+      { text: "Usare solo olio d'oliva", isCorrect: false, score: 0 },
+      { text: 'Mescolare rapidamente', isCorrect: false, score: 0 },
+      { text: "Aggiungere l'acqua all'inizio", isCorrect: false, score: 0 },
+    ],
+    difficulty: 1,
+    topic: 'Cucina',
+    time: 60,
+    userAnswers: [],
+    questionScore: 0,
+  },
+  {
+    questionText:
+      'Qual è il taglio di carne migliore **per preparare un arrosto perfetto**?',
+    imageUrl:
+      'https://thumbs.dreamstime.com/z/roasted-meat-bay-leaf-baked-186503126.jpg?ct=jpeg',
+    answers: [
+      { text: 'Controfiletto', isCorrect: true, score: 1 },
+      { text: 'Pancetta', isCorrect: false, score: 0 },
+      { text: 'Petto di pollo', isCorrect: false, score: 0 },
+      { text: 'Braciole di maiale', isCorrect: false, score: 0 },
+    ],
+    difficulty: 1,
+    topic: 'Cucina',
+    time: 60,
+    userAnswers: [],
+    questionScore: 0,
+  },
+  {
+    questionText:
+      'Qual è il metodo migliore **per mantenere croccanti le patatine fritte**?',
+    imageUrl:
+      'https://thumbs.dreamstime.com/z/patatine-fritte-frenchfries-contorno-frittura-157025596.jpg?ct=jpeg',
+    answers: [
+      { text: 'Cuocerle due volte', isCorrect: true, score: 1 },
+      { text: 'Salarle prima della cottura', isCorrect: false, score: 0 },
+      { text: 'Cuocerle a fuoco basso', isCorrect: false, score: 0 },
+      { text: "Cuocerle con olio d'oliva", isCorrect: false, score: 0 },
+    ],
+    difficulty: 1,
+    topic: 'Cucina',
+    time: 60,
+    userAnswers: [],
+    questionScore: 0,
+  },
+  {
+    questionText:
+      'Qual è la tecnica corretta **per preparare un risotto cremoso**?',
+    imageUrl:
+      'https://thumbs.dreamstime.com/z/comfort-food-ideas-scoop-creamy-rice-pudding-cozy-bowl-ideal-rainy-day-ultimate-317657642.jpg?ct=jpeg',
+    answers: [
+      { text: 'Aggiungere il brodo gradualmente', isCorrect: true, score: 1 },
+      { text: 'Cuocerlo a fuoco alto', isCorrect: false, score: 0 },
+      { text: 'Aggiungere la panna', isCorrect: false, score: 0 },
+      { text: 'Cuocerlo in forno', isCorrect: false, score: 0 },
+    ],
+    difficulty: 1,
+    topic: 'Cucina',
+    time: 60,
+    userAnswers: [],
+    questionScore: 0,
+  },
 ]
