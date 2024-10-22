@@ -35,7 +35,7 @@ section {
 }
 
 #divTimer {
-  width: 14%;
+  width: 100px;
   text-align: center; /* Allinea il testo a destra */
   font-size: 1.2rem;
   font-weight: bold;

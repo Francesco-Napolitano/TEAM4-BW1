@@ -1,29 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>timer</title>
-    <link rel="stylesheet" href="./timer.css" />
-  </head>
-  <body>
-    <div class="timer">
-      <div class="timer-inner">
-        <p id="count"></p>
-        <span class="inner-text-top">SECONDS</span>
-        <span id="time-left"> 30 </span>
-        <span class="inner-text-bot">REMAINING</span>
-        <svg class="progress-ring" width="150" height="150">
-          <circle
-            class="progress-ring__background"
-            cx="50"
-            cy="50"
-            r="45"
-          ></circle>
-          <circle class="progress-ring__circle" cx="50" cy="50" r="45"></circle>
-        </svg>
-      </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>timer</title>
+  <link rel="stylesheet" href="./timer.css" />
+</head>
+
+<body>
+  <div class="timer">
+    <div class="timer-inner">
+      <p id="count"></p>
+      <span class="inner-text-top">SECONDS</span>
+      <span id="time-left"></span>
+      <span class="inner-text-bot">REMAINING</span>
+      <svg class="progress-ring" width="150" height="150">
+        <circle class="progress-ring__background" cx="50" cy="50" r="45"></circle>
+        <circle class="progress-ring__circle" cx="50" cy="50" r="45"></circle>
+      </svg>
     </div>
-    <script src="./timer.js"></script>
-  </body>
+  </div>
+  <script src="./timer.js"></script>
+</body>
+
 </html>
