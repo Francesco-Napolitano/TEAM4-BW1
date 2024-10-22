@@ -30,7 +30,7 @@ header{
   }
 
   .fas {
-    padding: 0.05em;
+    padding: 0;
     color: #000000b0;
   }
 
@@ -61,3 +61,43 @@ input {
     outline: none;
 }
 
+#s1{
+    padding: 0;
+}
+#s2{
+    padding: 0;
+}
+#s3{
+    padding-right: 0.05em;
+}
+#s4{
+    padding: 0;
+}
+#s5{
+    padding: 0;
+}
+#s6{
+    padding: 0;
+}
+#s7{
+    padding: 0;
+}
+#s8{
+    padding: 0;
+}
+#s9{
+    padding: 0;
+}
+#s10{
+    padding: 0;
+} 
+ 
+/* modifiche js */
+
+.colorStar{
+    color: #75fbfd;
+}
+
+.unselectColour{
+    color: #000000b0;
+}
