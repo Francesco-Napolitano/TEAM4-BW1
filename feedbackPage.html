@@ -16,36 +16,34 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <meta name="description" content="Feedback Page" />
   </head>
   <body>
-    <header>
-      <div><img src="assets/epicode_logo.png" /></div>
-    </header>
-
+    <header><img src="assets/epicode_logo.png" /></header>
     <main>
-      <div id="container">
-        <section id="title">
-          <h1>Tell us how it's going</h1>
-        </section>
-        <section id="content"><div id="starRating"></div></section>
-        <section id="button">
-          <form>
-            <input
-              placeholder="Write your comment here"
-              required
-              minlength="1"
-              maxlength="100"
-            />
-            <button>
-              <a
-                href="https://www.imdb.com/title/tt0126029/mediaviewer/rm4151163904/?ref_=tt_mi_1_3"
-                >Clicca per avere Shrek Gratis</a
-              >
-            </button>
-          </form>
-        </section>
-        <section id="last-section"></section>
+      <h1>Tell us how it's going</h1>
+      <p>
+        From 0 to 10, how likely are you to reccomend EPICODE to a friend or a
+        colleague?
+      </p>
+      <div id="star">
+        <i class="fas fa-star"></i><i class="fas fa-star"></i
+        ><i class="fas fa-star"></i><i class="fas fa-star"></i
+        ><i class="fas fa-star"></i><i class="fas fa-star"></i
+        ><i class="fas fa-star"></i><i class="fas fa-star"></i
+        ><i class="fas fa-star"></i><i class="fas fa-star"></i>
       </div>
+      <form id="review">
+        <div>
+          <label for="feedback"
+            >Leave us an open feedback about your experience so far</label
+          >
+          <input id="feedback" required placeholder="Write your comment here" />
+        </div>
+        <div>
+          <button>Send feedback</button>
+        </div>
+      </form>
     </main>
   </body>
 </html>
