@@ -64,11 +64,6 @@ section {
   height: 250px;
 }
 
-
-
-
-
-
 #divMessage {
   height: 1.5rem;
   text-align: center;
@@ -82,8 +77,6 @@ section {
   text-align: center;
 }
 
-
-
 input[type='radio'],
 input[type='checkbox'] {
   accent-color: #b51289;
@@ -91,8 +84,6 @@ input[type='checkbox'] {
   width: 20px;
   height: 20px;
 }
-
-
 
 button {
   display: block;

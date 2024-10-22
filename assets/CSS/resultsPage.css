@@ -1,12 +1,30 @@
-body{ background-image: url(../CSS/bg.jpg);
-    background-size: cover;
-    background-position:top;
-    font-family:"outfit", sans-serif;
+#title {
+    font-family: 'Outfit';
 }
-#logo{
-    height: 3rem;
-    margin-top:3rem;
-    margin-left:7rem;
-    margin-bottom:7rem;
-    
+
+#title > h1 {
+  font-size: 5em;
+}
+
+#title > p {
+  font-size: 2em;
+}
+
+#content {
+  display: inline-block;
+}
+
+#correctAnswers {
+  text-align: left;
+}
+
+#graphic {
+  text-align: center;
+}
+
+#wrongAnswers {
+  text-align: right;
+}
+
+#trasparent {
 }
