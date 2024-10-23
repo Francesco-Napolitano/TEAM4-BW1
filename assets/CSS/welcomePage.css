@@ -88,9 +88,8 @@ input[type='checkbox']:checked + label::after {
   }
 
   */
-button {
-  margin-left: 11.5rem;
-}
+
+  
 
 input[type='checkbox'] {
   appearance: none; /* Rimuove lo stile predefinito della checkbox */
