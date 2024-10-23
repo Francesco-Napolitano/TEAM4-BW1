@@ -20,15 +20,15 @@ const unselectColour = () => {
 // ***********************************************************************
 //
 
+// Seleziona il DIV che contiene le stelline
+const stars = document.getElementById('star')
+
 // topic è l'argomento delle domande deve essere espresso come stringa ed
 // essere ASSOLUTAMENTE identico al 'topic' riportato nel file 'questions.js'
 const topic =
   localStorage.getItem('examTopic') !== null
     ? localStorage.getItem('examTopic')
     : 'HTML, CSS, JS' // Sempre il solito valore di defaulr
-
-// Seleziona il DIV che contiene le stelline
-const stars = document.getElementById('star')
 
 //
 // ***********************************************************************

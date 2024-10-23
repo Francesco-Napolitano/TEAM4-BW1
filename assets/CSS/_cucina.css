@@ -4,6 +4,7 @@
   --evidence1-color: #d35400; /* Arancione scuro per i titoli */
   --evidence2-color: #e74c3c; /* Rosso per il grafico */
   --evidence3-color: #2ecc71; /* Verde per il grafico */
+  --evidence4-color: white;
 }
 
 body {
@@ -14,14 +15,13 @@ th {
   font-weight: 900;
 }
 
-button#trasparent {
-  background-color: var(--evidence1-color);
-  color: var(--text-color);
-}
-
 #logoImg {
   background-color: black;
   padding: 10px;
+}
+
+button {
+  color: var(--text-color);
 }
 
 img#themeIcon {
@@ -35,6 +35,59 @@ img#themeIcon {
   padding: 1rem;
 }
 
-#themeIcon {
-  width: 50px;
+img#themeIcon {
+  position: absolute;
+  width: 30px;
+  transform: translate(-50%, +100%) rotate(25deg);
+  z-index: 999;
+  cursor: pointer;
+}
+
+#themeIcon:hover {
+  transform: scale(2);
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease;
+}
+
+#correctAnswers,
+#wrongAnswers {
+  text-align: center;
+}
+
+#correctAnswers {
+  background-color: var(--evidence3-color);
+}
+
+#wrongAnswers {
+  background-color: var(--evidence2-color);
+}
+
+#correctAnswers p:first-child,
+#wrongAnswers p:first-child {
+  margin-top: 4rem;
+}
+
+#correctNumber,
+#wrongNumber {
+  font-weight: bold;
+}
+
+th {
+  color: var(--evidence4-color);
+}
+
+.thQuestionText {
+  color: var(--evidence4-color);
+  background-color: var(--evidence3-color);
+}
+
+.trIsIncorrect {
+  color: var(--evidence4-color);
+  background-color: var(--evidence2-color);
+}
+
+a {
+  color: var(--evidence1-color);
+  text-decoration: none;
 }

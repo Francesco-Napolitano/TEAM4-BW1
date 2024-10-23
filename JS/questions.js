@@ -2,7 +2,7 @@ const questionsWithImage = [
   {
     questionText:
       "Quale attributo HTML è usato per definire **il percorso di un'immagine**?",
-    imageUrl: 'https://placecats.com/millie/300/150',
+    imageUrl: './assets/img/codeSnippet1.png',
     answers: [
       { text: 'src', isCorrect: true, score: 1 },
       { text: 'href', isCorrect: false, score: 0 },
@@ -16,8 +16,7 @@ const questionsWithImage = [
     questionScore: 0,
   },
   {
-    questionText: 'Quale tag HTML è usato per **creare una tabella**?',
-    imageUrl: 'https://placecats.com/millie_neo/300/200',
+    imageUrl: './assets/img/codeSnippet1.png',
     answers: [
       { text: '<table>', isCorrect: true, score: 1 },
       { text: '<grid>', isCorrect: false, score: 0 },
@@ -33,7 +32,7 @@ const questionsWithImage = [
   {
     questionText:
       'Come si aggiunge **una classe** a un elemento in JavaScript?',
-    imageUrl: '',
+    imageUrl: './assets/img/codeSnippet2.png',
     answers: [
       {
         text: "element.classList.add('nomeClasse')",
@@ -53,7 +52,7 @@ const questionsWithImage = [
   {
     questionText:
       'Quale proprietà CSS è usata per modificare **il colore del testo**?',
-    imageUrl: '',
+    imageUrl: './assets/img/codeSnippet3.png',
     answers: [
       { text: 'color', isCorrect: true, score: 1 },
       { text: 'text-color', isCorrect: false, score: 0 },
@@ -69,7 +68,7 @@ const questionsWithImage = [
   {
     questionText:
       'Quale di questi selettori CSS è usato per selezionare **un elemento con un id specifico**?',
-    imageUrl: 'https://placecats.com/neo_banana/300/200',
+    imageUrl: './assets/img/codeSnippet4.png',
     answers: [
       { text: '#', isCorrect: true, score: 1 },
       { text: '.', isCorrect: false, score: 0 },
@@ -85,7 +84,7 @@ const questionsWithImage = [
   {
     questionText:
       'Quale metodo JavaScript viene utilizzato per **stampare messaggi nella console**?',
-    imageUrl: 'https://placecats.com/neo_2/300/200',
+    imageUrl: './assets/img/codeSnippet5.png',
     answers: [
       { text: 'console.log()', isCorrect: true, score: 1 },
       { text: 'print()', isCorrect: false, score: 0 },
@@ -101,7 +100,7 @@ const questionsWithImage = [
   {
     questionText:
       "Quale tag HTML viene utilizzato per **inserire un'immagine**?",
-    imageUrl: 'https://placecats.com/bella/300/200',
+    imageUrl: './assets/img/codeSnippet6.png',
     answers: [
       { text: '<img>', isCorrect: true, score: 1 },
       { text: '<image>', isCorrect: false, score: 0 },
@@ -117,7 +116,7 @@ const questionsWithImage = [
   {
     questionText:
       'Quale proprietà CSS è utilizzata per modificare **la dimensione del testo**?',
-    imageUrl: '',
+    imageUrl: './assets/img/codeSnippet7.png',
     answers: [
       { text: 'font-size', isCorrect: true, score: 1 },
       { text: 'text-size', isCorrect: false, score: 0 },
@@ -132,7 +131,7 @@ const questionsWithImage = [
   },
   {
     questionText: 'Quale tag HTML definisce **una intestazione**?',
-    imageUrl: 'https://placecats.com/millie/300/150',
+    imageUrl: '',
     answers: [
       { text: '<h1>', isCorrect: true, score: 1 },
       { text: '<header>', isCorrect: false, score: 0 },
@@ -147,7 +146,7 @@ const questionsWithImage = [
   },
   {
     questionText: 'Come si definisce **un commento** in JavaScript?',
-    imageUrl: '',
+    imageUrl: './assets/img/codeSnippet8.png',
     answers: [
       { text: '// Questo è un commento', isCorrect: true, score: 1 },
       { text: '# Questo è un commento', isCorrect: false, score: 0 },
@@ -163,7 +162,7 @@ const questionsWithImage = [
   {
     questionText:
       'Quale proprietà CSS permette di rendere **un testo in grassetto**?',
-    imageUrl: 'https://placecats.com/millie_neo/300/200',
+    imageUrl: './assets/img/codeSnippet9.png',
     answers: [
       { text: 'font-weight', isCorrect: true, score: 1 },
       { text: 'font-style', isCorrect: false, score: 0 },
@@ -194,7 +193,7 @@ const questionsWithImage = [
   },
   {
     questionText: 'Quale tag HTML è usato per **creare un elenco numerato**?',
-    imageUrl: 'https://placecats.com/neo_banana/300/200',
+    imageUrl: './assets/img/codeSnippet1.png',
     answers: [
       { text: '<ol>', isCorrect: true, score: 1 },
       { text: '<ul>', isCorrect: false, score: 0 },
@@ -210,7 +209,7 @@ const questionsWithImage = [
   {
     questionText:
       "Quale attributo HTML viene utilizzato per associare **un'etichetta a un elemento del form**?",
-    imageUrl: '',
+    imageUrl: './assets/img/codeSnippet2.png',
     answers: [
       { text: 'for', isCorrect: true, score: 1 },
       { text: 'id', isCorrect: false, score: 0 },
@@ -241,7 +240,7 @@ const questionsWithImage = [
   },
   {
     questionText: 'Come si specifica **un font** in CSS?',
-    imageUrl: '',
+    imageUrl: './assets/img/codeSnippet3.png',
     answers: [
       { text: 'font-family', isCorrect: true, score: 1 },
       { text: 'font-style', isCorrect: false, score: 0 },
@@ -257,7 +256,7 @@ const questionsWithImage = [
   {
     questionText:
       'Quale dei seguenti selettori CSS viene utilizzato **per selezionare tutti gli elementi**?',
-    imageUrl: 'https://placecats.com/neo_2/300/200',
+    imageUrl: './assets/img/codeSnippet4.png',
     answers: [
       { text: '*', isCorrect: true, score: 1 },
       { text: '#', isCorrect: false, score: 0 },
@@ -272,7 +271,7 @@ const questionsWithImage = [
   },
   {
     questionText: 'Come si dichiara **una variabile costante** in JavaScript?',
-    imageUrl: 'https://placecats.com/bella/300/200',
+    imageUrl: '',
     answers: [
       { text: 'const', isCorrect: true, score: 1 },
       { text: 'var', isCorrect: false, score: 0 },
@@ -288,7 +287,7 @@ const questionsWithImage = [
   {
     questionText:
       "Quale metodo JavaScript è utilizzato **per aggiungere un nuovo elemento all'inizio di un array**?",
-    imageUrl: '',
+    imageUrl: './assets/img/codeSnippet5.png',
     answers: [
       { text: 'unshift()', isCorrect: true, score: 1 },
       { text: 'push()', isCorrect: false, score: 0 },
@@ -304,7 +303,7 @@ const questionsWithImage = [
   {
     questionText:
       'Quale tag HTML si utilizza **per creare un link ipertestuale**?',
-    imageUrl: 'https://placecats.com/millie/300/150',
+    imageUrl: './assets/img/codeSnippet6.png',
     answers: [
       { text: '<link>', isCorrect: false, score: 0 },
       { text: '<a>', isCorrect: true, score: 1 },
@@ -320,7 +319,7 @@ const questionsWithImage = [
   {
     questionText:
       'Quali di questi tag HTML sono validi **per la formattazione del testo**?',
-    imageUrl: 'https://placecats.com/millie_neo/300/200',
+    imageUrl: './assets/img/codeSnippet7.png',
     answers: [
       { text: '<b>', isCorrect: true, score: 1 },
       { text: '<i>', isCorrect: true, score: 1 },
@@ -336,7 +335,7 @@ const questionsWithImage = [
   {
     questionText:
       'Quali attributi si possono utilizzare **per un tag <input> in un form HTML**?',
-    imageUrl: '',
+    imageUrl: './assets/img/codeSnippet8.png',
     answers: [
       { text: 'type', isCorrect: true, score: 1 },
       { text: 'placeholder', isCorrect: true, score: 1 },
@@ -352,7 +351,7 @@ const questionsWithImage = [
   {
     questionText:
       'Quali metodi JavaScript si possono usare **per selezionare elementi dal DOM**?',
-    imageUrl: 'https://placecats.com/neo_banana/300/200',
+    imageUrl: './assets/img/codeSnippet9.png',
     answers: [
       { text: 'getElementById', isCorrect: true, score: 1 },
       { text: 'getElementsByClassName', isCorrect: true, score: 1 },
@@ -367,7 +366,7 @@ const questionsWithImage = [
   },
   {
     questionText: 'Quali dei seguenti elementi sono **semantici in HTML5**?',
-    imageUrl: 'https://placecats.com/neo_2/300/200',
+    imageUrl: '',
     answers: [
       { text: '<header>', isCorrect: true, score: 1 },
       { text: '<footer>', isCorrect: true, score: 1 },
@@ -383,7 +382,7 @@ const questionsWithImage = [
   {
     questionText:
       'Quali tecniche CSS possono essere usate **per posizionare un elemento al centro di una pagina**?',
-    imageUrl: '',
+    imageUrl: './assets/img/codeSnippet1.png',
     answers: [
       { text: 'flexbox', isCorrect: true, score: 1 },
       { text: 'grid', isCorrect: true, score: 1 },
@@ -403,7 +402,7 @@ const questionsWithImage = [
   {
     questionText:
       'Quali degli operatori seguenti in JavaScript sono utilizzati **per confrontare valori**?',
-    imageUrl: '',
+    imageUrl: './assets/img/codeSnippet2.png',
     answers: [
       { text: '==', isCorrect: true, score: 1 },
       { text: '===', isCorrect: true, score: 1 },
@@ -419,7 +418,7 @@ const questionsWithImage = [
   {
     questionText:
       'Quali delle seguenti sono tecniche **per ottimizzare il caricamento di una pagina web**?',
-    imageUrl: 'https://placecats.com/bella/300/200',
+    imageUrl: './assets/img/codeSnippet3.png',
     answers: [
       { text: 'Minificare file CSS e JavaScript', isCorrect: true, score: 1 },
       {
@@ -443,7 +442,7 @@ const questionsWithImage = [
   {
     questionText:
       'Quali eventi JavaScript possono essere utilizzati **per rilevare interazioni con un utente**?',
-    imageUrl: '',
+    imageUrl: './assets/img/codeSnippet4.png',
     answers: [
       { text: 'click', isCorrect: true, score: 1 },
       { text: 'mouseover', isCorrect: true, score: 1 },
@@ -459,7 +458,7 @@ const questionsWithImage = [
   {
     questionText:
       'Quali di queste dichiarazioni JavaScript possono **bloccare il flusso del codice**?',
-    imageUrl: 'https://placecats.com/millie/300/150',
+    imageUrl: '',
     answers: [
       { text: 'if', isCorrect: true, score: 1 },
       { text: 'while', isCorrect: true, score: 1 },
@@ -647,7 +646,8 @@ const questionsWithImage = [
   },
   {
     questionText: "Qual è la capitale **dell'Italia**?",
-    imageUrl: '',
+    imageUrl:
+      'https://cdn.studenti.stbm.it/images/2020/10/26/italia-politica-orig.jpeg',
     answers: [
       { text: 'Napoli', isCorrect: false, score: 0 },
       { text: 'Roma', isCorrect: true, score: 1 },
@@ -662,7 +662,8 @@ const questionsWithImage = [
   },
   {
     questionText: 'Qual è il fiume più lungo **del mondo**?',
-    imageUrl: '',
+    imageUrl:
+      'https://risorse.arcipelagoeducativo.it/sites/default/files/styles/crop_teaser/public/2023-05/kyle-glenn-nXt5HtLmlgE-unsplash.jpg?itok=1EXxZkeO',
     answers: [
       { text: 'Nilo', isCorrect: true, score: 1 },
       { text: 'Mississippi', isCorrect: false, score: 0 },
@@ -677,7 +678,8 @@ const questionsWithImage = [
   },
   {
     questionText: 'Qual è il continente **più grande per estensione**?',
-    imageUrl: '',
+    imageUrl:
+      'https://sanoma.it/hs-fs/hubfs/Testate/testata_disciplinare_geografia-SSSG.jpg?width=2000&name=testata_disciplinare_geografia-SSSG.jpg',
     answers: [
       { text: 'Europa', isCorrect: false, score: 0 },
       { text: 'Asia', isCorrect: true, score: 1 },
@@ -692,7 +694,8 @@ const questionsWithImage = [
   },
   {
     questionText: 'Qual è il deserto **più grande al mondo**?',
-    imageUrl: '',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Trockenklimate.png/1920px-Trockenklimate.png',
     answers: [
       { text: 'Gobi', isCorrect: false, score: 0 },
       { text: 'Sahara', isCorrect: true, score: 1 },
@@ -707,7 +710,8 @@ const questionsWithImage = [
   },
   {
     questionText: 'Qual è la montagna **più alta del mondo**?',
-    imageUrl: '',
+    imageUrl:
+      'https://blog.geografia.deascuola.it/uploads/2023/10/Sassolungo-Sassopiatto-Dolomiti_c48f2d5d48a3644a48b300cf47544b5d.jpg',
     answers: [
       { text: 'K2', isCorrect: false, score: 0 },
       { text: 'Everest', isCorrect: true, score: 1 },
@@ -722,7 +726,8 @@ const questionsWithImage = [
   },
   {
     questionText: 'Qual è il paese **più grande per superficie**?',
-    imageUrl: '',
+    imageUrl:
+      'https://images.twinkl.co.uk/tw1n/image/private/t_630_eco/image_repo/c5/da/it-t-t-14377-i-continenti-e-gli-oceani-attivitagrave_ver_1.jpg',
     answers: [
       { text: 'Stati Uniti', isCorrect: false, score: 0 },
       { text: 'Russia', isCorrect: true, score: 1 },
@@ -737,7 +742,8 @@ const questionsWithImage = [
   },
   {
     questionText: 'Quale nazione ha la **popolazione più numerosa**?',
-    imageUrl: '',
+    imageUrl:
+      'https://blog.geografia.deascuola.it/uploads/2024/05/apertura-popoli-e-culture-1_49b67a36abcd5838eca0a5ad933a11f9.jpg',
     answers: [
       { text: 'Stati Uniti', isCorrect: false, score: 0 },
       { text: 'Cina', isCorrect: true, score: 1 },
@@ -752,7 +758,8 @@ const questionsWithImage = [
   },
   {
     questionText: "Qual è l'oceano **più profondo del mondo**?",
-    imageUrl: '',
+    imageUrl:
+      'https://www.guideturistiche.net/wp-content/uploads/2024/07/la-fossa-delle-Marianne-e-la-parte-piu-profonda-delloceano.webp',
     answers: [
       { text: 'Oceano Indiano', isCorrect: false, score: 0 },
       { text: 'Oceano Pacifico', isCorrect: true, score: 1 },
@@ -767,7 +774,8 @@ const questionsWithImage = [
   },
   {
     questionText: 'Qual è il paese **più piccolo del mondo**?',
-    imageUrl: '',
+    imageUrl:
+      'https://www.fila.it/it/it/wp-content/uploads/sites/2/iStock-824552118.jpg',
     answers: [
       { text: 'Liechtenstein', isCorrect: false, score: 0 },
       { text: 'Monaco', isCorrect: false, score: 0 },
@@ -782,7 +790,8 @@ const questionsWithImage = [
   },
   {
     questionText: "Qual è la capitale **dell'Australia**?",
-    imageUrl: '',
+    imageUrl:
+      'https://staticgeopop.akamaized.net/wp-content/uploads/sites/32/2022/07/iStock-157563215.jpg?im=Resize,width=638;',
     answers: [
       { text: 'Sydney', isCorrect: false, score: 0 },
       { text: 'Canberra', isCorrect: true, score: 1 },

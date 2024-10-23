@@ -24,14 +24,6 @@ let topics = questionsWithImage
     return !pos || item != array[pos - 1]
   })
 
-// topic è l'argomento delle domande deve essere espresso come stringa ed
-// essere ASSOLUTAMENTE identico al 'topic' riportato nel file 'questions.js'
-// se non è settato nel localStore, usa il valore di default
-let topic =
-  localStorage.getItem('examTopic') !== null
-    ? localStorage.getItem('examTopic')
-    : 'HTML, CSS, JS' // Sempre il solito valore di default
-
 // Istanzia la variabile che definisce il tema (è il topic in minuscolo)
 let theme = topic.toLocaleLowerCase()
 

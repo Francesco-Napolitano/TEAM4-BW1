@@ -18,7 +18,7 @@ h1 span {
 }
 
 #questionImage img {
-  width: 300px;
+  width: 400px;
   border: 2px solid var(--evidence1-color);
   border-radius: 10px;
 }
