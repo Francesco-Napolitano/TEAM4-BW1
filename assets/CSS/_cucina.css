@@ -10,15 +10,6 @@ body {
   background-image: url(/assets/img/bgCucina.jpg);
 }
 
-#logoImg {
-  background-color: black;
-  padding: 10px;
-}
-#container {
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 1rem;
-}
-
 th {
   font-weight: 900;
 }
@@ -26,4 +17,24 @@ th {
 button#trasparent {
   background-color: var(--evidence1-color);
   color: var(--text-color);
+}
+
+#logoImg {
+  background-color: black;
+  padding: 10px;
+}
+
+img#themeIcon {
+  position: absolute;
+  width: 30px;
+  transform: translate(-50%, +100%) rotate(25deg);
+}
+
+#container {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 1rem;
+}
+
+#themeIcon {
+  width: 50px;
 }
