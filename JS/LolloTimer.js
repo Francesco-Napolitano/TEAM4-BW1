@@ -82,8 +82,8 @@ function startTimer(seconds) {
 
     if (timeLimit - timePassed >= 0) {
       label
-        .style('font-size', '120px')
-        .attr('transform', 'translate(0,' + +4 + ')')
+        .style('font-size', '4rem')
+        .attr('transform', 'translate(0,' + +0 + ')')
         .text(function (d) {
           return d.size - d.value
         })
@@ -93,8 +93,8 @@ function startTimer(seconds) {
       .transition()
       .ease('elastic')
       .duration(900)
-      .style('font-size', '90px')
-      .attr('transform', 'translate(0,' + -10 + ')')
+      .style('font-size', '2rem')
+      .attr('transform', 'translate(0,' + -0 + ')')
   }
 
   function destroyTimer() {
