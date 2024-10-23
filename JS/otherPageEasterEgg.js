@@ -39,13 +39,13 @@ const topic =
 //
 // ***********************************************************************
 //
-if (!document.getElementById(`${topic}`)) {
+const theme = topic.toLowerCase()
+if (theme !== 'HTML, CSS, JS' && !document.getElementById(theme)) {
   var head = document.getElementsByTagName('head')[0]
   var link = document.createElement('link')
-  link.id = cssId
   link.rel = 'stylesheet'
   link.type = 'text/css'
-  link.href = `./assets/CSS/_${topic}.css`
+  link.href = `./assets/CSS/_${theme}.css`
   link.media = 'all'
   head.appendChild(link)
 }
