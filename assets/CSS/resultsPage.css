@@ -57,7 +57,6 @@
 
 #graphic > div > p:nth-of-type(2) {
   font-size: 1.5rem;
-  color: cyan;
   margin-bottom: 1.5rem;
 }
 
@@ -82,8 +81,8 @@
   text-align: center;
 }
 
-.cyan {
-  color: cyan;
+.#01E1E7 {
+  color: #01e1e7;
 }
 
 table {
@@ -103,7 +102,7 @@ th {
 }
 
 .trIsCorrect {
-  background-color: cyan;
+  background-color: #01e1e7;
   color: black;
 }
 

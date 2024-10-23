@@ -88,8 +88,8 @@ const calculateResultsAndBuildTable = () => {
       let currentUserAnswerIsCorrect = false
 
       // TABELLA RISULTATI
-      // +---------------------+-----------------+-----------------+
-      // |                     |      Data       |     NON Data    |
+      //                       +-----------------+-----------------+
+      //                       |      Data       |     NON Data    |
       // +---------------------+-----------------+-----------------+
       // | Risp. Giusta        |      true       |      null       |
       // +---------------------+-----------------+-----------------+
@@ -187,19 +187,24 @@ const calculateResultsAndBuildTable = () => {
   if (percentageCorrect >= 60) {
     document.getElementById('endExamText').innerHTML = `
             <p>Congratulazioni!</p>
-            <p>Hai superato l'esame.</p>
+            <p span="cyanColor">Hai superato l'esame.</p>
             <p>
               Ti mandere il certificato in pochi minuti. Controlla la tua
               email (controlla anche promozioni e spam).
             </p>`
+    // il div che contiene i risultati, ovveroo CORRETTE o SBAGLIATE è bianco e non grigio
+    document.getElementById('correctAnswers').style.color = 'white'
   } else {
     document.getElementById('endExamText').innerHTML = `
-          <p>Ci dispiace ma</p>
-          <p>Non hai superato l'esame.</p>
-          <p>
-            Riprova tra qualche giorno. Studia meglio le domande
-            a cui hai in maniera errata.
-          </p>`
+            <p>Ci dispiace ma</p>
+            <p class="fucsiaColor">Non hai superato l'esame.</p>
+            <p>
+              Riprova tra qualche giorno. Studia meglio le domande
+              a cui hai in maniera errata.
+            </p>`
+
+    // il div che contiene i risultati, ovveroo CORRETTE o SBAGLIATE è bianco e non grigio
+    document.getElementById('wrongAnswers').style.color = 'white'
   }
 }
 
