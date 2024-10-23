@@ -130,7 +130,7 @@ const calculateResultsAndBuildTable = () => {
       resultsHTML += `<td>${escapeHTML(answer.text)}</td>`
       // inserisce sel la risposta è corretta lo indica con un cerchio
       if (answer.isCorrect) {
-        resultsHTML += `<td><span class="cyan"><i class="fa-solid fa-circle"></i></span></td>`
+        resultsHTML += `<td><span class="cyanColor"><i class="fa-solid fa-circle"></i></span></td>`
       } else {
         resultsHTML += '<td></td>'
       }
@@ -138,7 +138,7 @@ const calculateResultsAndBuildTable = () => {
       // Se la risposta è corretta e l'utente ha risposto correttamente allora inserisce un baffo
       // altrimenti una croce, oppure nulla se l'utente non ha dato quella risposta
       if (currentUserAnswerIsCorrect === true) {
-        resultsHTML += `<td><span class="cyan"><i class="fa-solid fa-check"></i></span></td>`
+        resultsHTML += `<td><span class="cyanColor"><i class="fa-solid fa-check"></i></span></td>`
       } else if (currentUserAnswerIsCorrect === false) {
         resultsHTML += `<td><span class="fucsiaColor"><i class="fa-solid fa-xmark"></i></span></td>`
       } else if (currentUserAnswerIsCorrect === null) {

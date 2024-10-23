@@ -92,6 +92,11 @@ const questionsWithImage = [
       { text: 'echo()', isCorrect: false, score: 0 },
       { text: 'write()', isCorrect: false, score: 0 },
     ],
+    difficulty: 1,
+    topic: 'HTML, CSS, JS',
+    time: 60,
+    userAnswers: [],
+    questionScore: 0,
   },
   {
     questionText:
