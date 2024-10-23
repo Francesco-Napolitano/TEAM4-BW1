@@ -25,6 +25,13 @@ sectionContent = document.getElementById('content')
 sectionButton = document.getElementById('button')
 sectionLastSection = document.getElementById('lastSection')
 
+// topic è l'argomento delle domande deve essere espresso come stringa ed
+// essere ASSOLUTAMENTE identico al 'topic' riportato nel file 'questions.js'
+const topic =
+  localStorage.getItem('examTopic') !== null
+    ? localStorage.getItem('examTopic')
+    : 'HTML, CSS, JS' // Sempre il solito valore di defaulr
+
 //
 // ***********************************************************************
 //
@@ -32,33 +39,3 @@ sectionLastSection = document.getElementById('lastSection')
 //
 // ***********************************************************************
 //
-
-// Per trovare i topics unici, uso il metodo 'filter' sul metodo 'map' che mi restituisce un array con tutti i topics
-// https://stackoverflow.com/questions/9229645/remove-duplicate-values-from-js-array
-let topics = questionsWithImage
-  .map((question) => question.topic)
-  .filter((item, pos, array) => {
-    return !pos || item != array[pos - 1]
-  })
-
-// Crea il selettore per i topics
-const selectElement = document.createElement('select')
-selectElement.id = 'topicSelection'
-selectElement.name = 'topicSelection'
-
-// Ci mette dento tutti i 'topics' delle 'questions'
-topics.forEach((topic) => {
-  const option = document.createElement('option')
-  option.value = topic
-  option.text = topic
-  selectElement.appendChild(option)
-})
-
-// Lo appende alla 'lastSection'
-sectionLastSection.appendChild(selectElement)
-
-// Configura un valore di default nel localStorage e attiva un eventListener se il dopic viene modificato
-localStorage.setItem('examTopic', 'HTML, CSS, JS')
-selectElement.addEventListener('change', (e) => {
-  localStorage.setItem('examTopic', e.target.value)
-})
