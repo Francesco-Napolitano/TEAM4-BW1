@@ -48,6 +48,7 @@ stars.addEventListener('click', (e) => {
   }
 })
 
+// aggiunto sezione che illumina il button quando inserisci il feedback
 const nextQuestionButton = document.getElementById('nextQuestionButton')
 const allStars = document.querySelectorAll('#star i')
 const reviewInput = document.getElementById('review')
