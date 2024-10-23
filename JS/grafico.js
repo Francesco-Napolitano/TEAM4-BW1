@@ -2,16 +2,21 @@ function calculateResults(questions){
     let correctAnswers =0
     let incorrectAnswers=0
 
-questions.forEach(question => { //mi calcolo le risposte corrette
-    const userCorrectAnswer = question.answers.find(answer => answer.isCorrect)
-const userAnsweredCorrectly = userCorrectAnswer ? userCorrectAnswer.score :0
-if(userAnsweredCorrectly>0){
-    correctAnswers++
-} else{
-    incorrectAnswers++
-}
-})
-return{
+  questions.forEach((question) => {
+    //mi calcolo le risposte corrette
+    const userCorrectAnswer = question.answers.find(
+      (answer) => answer.isCorrect
+    )
+    const userAnsweredCorrectly = userCorrectAnswer
+      ? userCorrectAnswer.score
+      : 0
+    if (userAnsweredCorrectly > 0) {
+      correctAnswers++
+    } else {
+      incorrectAnswers++
+    }
+  })
+  return {
     correct: correctAnswers,
     incorrect: incorrectAnswers
 }}
@@ -32,20 +37,20 @@ let graphicDonut = new Chart(ctx, {
     ],
   },
 
-options:{
-    responsive:true,
+  options: {
+    responsive: true,
     maintainAspectRatio: false,
     plugins: {
-        legend: {
-            position: 'top',
+      legend: {
+        position: 'top',
+      },
+      tooltip: {
+        callbacks: {
+          label: function (tooltipItem) {
+            return tooltipItem.label + ': ' + tooltipItem.raw
+          },
         },
-        tooltip: {
-            callbacks: {
-                label: function(tooltipItem) {
-                    return tooltipItem.label + ': ' + tooltipItem.raw;
-                }
-            }
-        }
-    }
-}
+      },
+    },
+  },
 })
