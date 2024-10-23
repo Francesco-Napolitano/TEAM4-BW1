@@ -285,8 +285,10 @@ let currentQuestionIndex = 0
 
 // topic è l'argomento delle domande deve essere espresso come stringa ed
 // essere ASSOLUTAMENTE identico al 'topic' riportato nel file 'questions.js'
-// const topic = 'HTML, CSS, JS'
-const topic = 'Cucina'
+const topic =
+  localStorage.getItem('examTopic') !== null
+    ? localStorage.getItem('examTopic')
+    : 'HTML, CSS, JS' // Sempre il solito valore di defaulr
 
 // difficulty è il livello di difficoltà delle domande
 // deve essere espresso con un intero tra 1 e 3
@@ -303,7 +305,7 @@ const selectedQuestionsArray = selectQuestions(
 // Setta il parametro per il controllo delle risposte prima di passare alla domanda successiva
 const checkAnswerBeforeGoAhead = true
 
-// definisce la variabile checonterrà tutti i checkbox e i radio e su cui verrà collegato un event listener
+// definisce la variabile che conterrà tutti i checkbox e i radio e su cui verrà collegato un event listener
 // sul cambio di stato per illuminare il bottone
 let checkboxes
 
@@ -314,16 +316,16 @@ let checkboxes
 //
 
 // definisce il div che contiene il testo delle domande
-sectionTitle = document.getElementById('title')
-sectionContent = document.getElementById('content')
-sectionButton = document.getElementById('button')
-sectionLastSection = document.getElementById('lastSection')
+const sectionTitle = document.getElementById('title')
+const sectionContent = document.getElementById('content')
+const sectionButton = document.getElementById('button')
+const sectionLastSection = document.getElementById('lastSection')
 
 // assegna il div per poter inviare eventuali messaggi all'utente
-divMessage = document.getElementById('divMessage')
+const divMessage = document.getElementById('divMessage')
 
 // definisce il bottone
-nextQuestionButton = document.getElementById('nextQuestionButton')
+const nextQuestionButton = document.getElementById('nextQuestionButton')
 
 //
 // ***********************************************************************

@@ -130,7 +130,7 @@ const calculateResultsAndBuildTable = () => {
       resultsHTML += `<td>${escapeHTML(answer.text)}</td>`
       // inserisce sel la risposta è corretta lo indica con un cerchio
       if (answer.isCorrect) {
-        resultsHTML += `<td><span class="cyan"><i class="fa-solid fa-circle"></i></span></td>`
+        resultsHTML += `<td><span class="cyanColor"><i class="fa-solid fa-circle"></i></span></td>`
       } else {
         resultsHTML += '<td></td>'
       }
@@ -138,7 +138,7 @@ const calculateResultsAndBuildTable = () => {
       // Se la risposta è corretta e l'utente ha risposto correttamente allora inserisce un baffo
       // altrimenti una croce, oppure nulla se l'utente non ha dato quella risposta
       if (currentUserAnswerIsCorrect === true) {
-        resultsHTML += `<td><span class="cyan"><i class="fa-solid fa-check"></i></span></td>`
+        resultsHTML += `<td><span class="cyanColor"><i class="fa-solid fa-check"></i></span></td>`
       } else if (currentUserAnswerIsCorrect === false) {
         resultsHTML += `<td><span class="fucsiaColor"><i class="fa-solid fa-xmark"></i></span></td>`
       } else if (currentUserAnswerIsCorrect === null) {
@@ -193,7 +193,8 @@ const calculateResultsAndBuildTable = () => {
               email (controlla anche promozioni e spam).
             </p>`
     // il div che contiene i risultati, ovveroo CORRETTE o SBAGLIATE è bianco e non grigio
-    document.getElementById('correctAnswers').style.color = 'white'
+    document.getElementById('correctAnswers').style.color =
+      'var(--evidence0-color)'
   } else {
     document.getElementById('endExamText').innerHTML = `
             <p>Ci dispiace ma</p>
@@ -204,7 +205,8 @@ const calculateResultsAndBuildTable = () => {
             </p>`
 
     // il div che contiene i risultati, ovveroo CORRETTE o SBAGLIATE è bianco e non grigio
-    document.getElementById('wrongAnswers').style.color = 'white'
+    document.getElementById('wrongAnswers').style.color =
+      'var(--evidence0-color)'
   }
 }
 
@@ -228,6 +230,13 @@ const questionsAndAnswers = JSON.parse(
   localStorage.getItem('questionsAndAnswers')
 )
 w('questionsAndAnswers: ', questionsAndAnswers)
+
+// topic è l'argomento delle domande deve essere espresso come stringa ed
+// essere ASSOLUTAMENTE identico al 'topic' riportato nel file 'questions.js'
+const topic =
+  localStorage.getItem('examTopic') !== null
+    ? localStorage.getItem('examTopic')
+    : 'HTML, CSS, JS' // Sempre il solito valore di defaulr
 
 // Individia il DIV messaggio
 const divMessage = document.getElementById('divMessage')

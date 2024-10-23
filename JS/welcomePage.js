@@ -11,10 +11,10 @@ checkBox.addEventListener('change', function () {
     buttonProceed.classList.remove('activatedButton')
   }
 })
-if (buttonProceed.classList.contains('activatedButton')) {
+/*if (buttonProceed.classList.contains('activatedButton')) {
   buttonProceed.classList.remove('activatedButton')
-}
-document.getElementById('buttonProceed')
+}*/
+
 buttonProceed.addEventListener('click', function () {
   location.href = 'questionPage.html'
 })
