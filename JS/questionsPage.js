@@ -316,16 +316,16 @@ let checkboxes
 //
 
 // definisce il div che contiene il testo delle domande
-sectionTitle = document.getElementById('title')
-sectionContent = document.getElementById('content')
-sectionButton = document.getElementById('button')
-sectionLastSection = document.getElementById('lastSection')
+const sectionTitle = document.getElementById('title')
+const sectionContent = document.getElementById('content')
+const sectionButton = document.getElementById('button')
+const sectionLastSection = document.getElementById('lastSection')
 
 // assegna il div per poter inviare eventuali messaggi all'utente
-divMessage = document.getElementById('divMessage')
+const divMessage = document.getElementById('divMessage')
 
 // definisce il bottone
-nextQuestionButton = document.getElementById('nextQuestionButton')
+const nextQuestionButton = document.getElementById('nextQuestionButton')
 
 //
 // ***********************************************************************

@@ -1,10 +1,17 @@
+:root {
+  --text-color: #e7e7eb;
+  --evidence0-color: white;
+  --evidence1-color: #d20094;
+  --evidence2-color: #00ffff;
+}
+
 body {
   background-image: url(/assets/img/bg.jpg);
   background-size: cover;
   background-position: top;
   font-family: 'outfit', sans-serif;
   background-attachment: fixed;
-  color: #e7e7eb;
+  color: var(--text-color);
   box-sizing: content-box;
   font-size: 1rem;
   line-height: 1.2rem;
@@ -35,7 +42,7 @@ p {
 
 input[type='radio'],
 input[type='checkbox'] {
-  accent-color: #b51289;
+  accent-color: var(--evidence1-color);
   /* Cambia il colore degli input selezionati */
   width: 20px;
   height: 20px;
@@ -47,36 +54,34 @@ button {
   margin: 3rem auto;
   height: 3rem;
   width: 13rem;
-  background-color: #00ffff;
+  background-color: var(--evidence2-color);
   font-family: 'outfit', sans-serif;
   font-weight: 800;
   font-size: 20px;
-  background-color: #00ffff;
   border: none;
   text-transform: uppercase;
 }
 
 .activatedButton {
-  box-shadow: 0 0 3px #00ffff, 0 0 20px #00ffff, 0 0 45px #00ffff,
-    0 0 180px #00ffff;
+  box-shadow: 0 0 3px var(--evidence2-color), 0 0 20px var(--evidence2-color),
+    0 0 45px var(--evidence2-color), 0 0 180px var(--evidence2-color);
 }
 
 .fucsiaColor {
-  color: #d20094;
+  color: var(--evidence1-color);
 }
 
 .cyanColor {
-  color: #00ffff;
+  color: var(--evidence2-color);
 }
 
 .whiteColor {
-  color: white;
+  color: var(--evidence0-color);
 }
 
 #divLogo,
 #divTimer {
   height: 200px;
-  /* border: 3px solid #00ffff; */
   display: inline-block; /* Rende i div inline-block per posizionarli fianco a fianco */
   vertical-align: top; /* Allinea verticalmente al centro */
 }
@@ -117,7 +122,6 @@ button {
 
 #content {
   margin-top: 3rem;
-  /* height: 250px; */
 }
 
 #divMessage {

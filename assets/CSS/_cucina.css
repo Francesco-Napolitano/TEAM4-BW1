@@ -1,0 +1,16 @@
+:root {
+  --text-color: #blacj; /* Grigio scuro per il testo */
+  --evidence0-color: #f39c12; /* Giallo dorato per il testo evidenziato */
+  --evidence1-color: #d35400; /* Arancione scuro per i titoli */
+  --evidence2-color: #e74c3c; /* Rosso per il grafico */
+  --evidence3-color: #2ecc71; /* Verde per il grafico */
+}
+
+body {
+  background-image: url(/assets/img/bgCucina.jpg);
+}
+
+#container {
+  background-color: rgba(243, 156, 18, 0.8);
+  padding: 1rem;
+}
