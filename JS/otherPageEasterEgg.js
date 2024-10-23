@@ -30,7 +30,7 @@ sectionLastSection = document.getElementById('lastSection')
 const topic =
   localStorage.getItem('examTopic') !== null
     ? localStorage.getItem('examTopic')
-    : 'HTML, CSS, JS' // Sempre il solito valore di defaulr
+    : 'HTML, CSS, JS' // Sempre il solito valore di default
 
 //
 // ***********************************************************************
@@ -39,3 +39,13 @@ const topic =
 //
 // ***********************************************************************
 //
+if (!document.getElementById(`${topic}`)) {
+  var head = document.getElementsByTagName('head')[0]
+  var link = document.createElement('link')
+  link.id = cssId
+  link.rel = 'stylesheet'
+  link.type = 'text/css'
+  link.href = `./assets/CSS/_${topic}.css`
+  link.media = 'all'
+  head.appendChild(link)
+}
