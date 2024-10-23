@@ -243,6 +243,28 @@ const buttonListener = (checkAnswerBeforeGoAhead) => {
     showQuestion(selectedQuestionsArray, currentQuestionIndex)
   }
 }
+
+// Funzione per controllare lo stato dei checkbox o radio
+const checkActivation = () => {
+  const checkboxes = document.querySelectorAll(
+    'input[type="checkbox"], input[type="radio"]'
+  )
+  const button = document.getElementById('nextQuestionButton')
+
+  w('checkActivation() checkboxes: ', checkboxes)
+
+  // Controlla se almeno un checkbox o radio è selezionato
+  const isAnyChecked = Array.from(checkboxes).some(
+    (checkbox) => checkbox.checked
+  )
+
+  if (isAnyChecked) {
+    button.classList.add('activatedButton') // Aggiunge la classe se almeno uno è selezionato
+  } else {
+    button.classList.remove('activatedButton') // Rimuove la classe se nessuno è selezionato
+  }
+}
+
 //
 // ***********************************************************************
 //
@@ -277,6 +299,10 @@ const selectedQuestionsArray = selectQuestions(
 // Setta il parametro per il controllo delle risposte prima di passare alla domanda successiva
 const checkAnswerBeforeGoAhead = true
 
+// definisce la variabile checonterrà tutti i checkbox e i radio e su cui verrà collegato un event listener
+// sul cambio di stato per illuminare il bottone
+let checkboxes
+
 //
 // ***********************************************************************
 // Definizione degli elementi della pagina rilevanti
@@ -307,8 +333,19 @@ nextQuestionButton = document.getElementById('nextQuestionButton')
 
 //
 // Mostra la prima domanda prima di attivare il bottone
-w(`questionIndex ${currentQuestionIndex} / ${numberOfQuestions - 1}`)
-showQuestion(selectedQuestionsArray, currentQuestionIndex)
+window.onload = () => {
+  showQuestion(selectedQuestionsArray, currentQuestionIndex)
+
+  // definisce i checkBox e i radio per verificare l'evento di attivazione del bottone
+  checkboxes = document.querySelectorAll(
+    'input[type="checkbox"], input[type="radio"]'
+  )
+
+  // Aggiunge l'evento 'change' a tutti i checkbox e radio per illuminare il bottone
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener('change', checkActivation) // Ogni volta che cambia, controlla lo stato
+  })
+}
 
 //
 // Aggiunge un event listener al bottone per passare alla domanda successiva
@@ -317,4 +354,17 @@ showQuestion(selectedQuestionsArray, currentQuestionIndex)
 // Questo servirà quando la funzione verrà chiamata allo scadere del timer
 nextQuestionButton.addEventListener('click', () => {
   buttonListener(checkAnswerBeforeGoAhead)
+
+  // Ricerca tutti i checkbox e i radio per controllare se almeno uno è selezionato
+  checkboxes = document.querySelectorAll(
+    'input[type="checkbox"], input[type="radio"]'
+  )
+
+  // controlla se il bottone è attivo e lo spegne nel caso sia una nuova domanda
+  checkActivation()
+
+  // Aggiunge l'evento 'change' a tutti i checkbox e radio per illuminare il bottone
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener('change', checkActivation) // Ogni volta che cambia, controlla lo stato
+  })
 })
