@@ -17,18 +17,20 @@ return{
 }}
 const results = calculateResults(questionsWithImage)
 const ctx = document.getElementById('myDoughnutChart').getContext('2d')
-let graphicDonut = new Chart(ctx,{
-    type:'doughnut',
-    data:{
-        labels: ['Correct','Incorrect'],
-        datasets:[{
-            label:'Results',
-            data:[6, 4],
-            backgroundColor:['red','green'],
-            borderColor:[],
-            borderWidth:1
-        }]
-    },
+let graphicDonut = new Chart(ctx, {
+  type: 'doughnut',
+  data: {
+    labels: ['Correct', 'Incorrect'],
+    datasets: [
+      {
+        label: 'Results',
+        data: [results.correct, results.incorrect],
+        backgroundColor: ['green', 'red'],
+        borderColor: [],
+        borderWidth: 1,
+      },
+    ],
+  },
 
 options:{
     responsive:true,
