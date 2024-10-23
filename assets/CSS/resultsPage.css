@@ -37,7 +37,7 @@
   vertical-align: middle;
   width: 300px;
   height: 300px;
-  border: 1px solid white;
+  border: 1px solid var(--evidence0-color);
 }
 
 #graphic > div {
@@ -75,37 +75,33 @@
 #trasparent {
   background: transparent;
   box-shadow: none;
-  border: solid white 1px;
-  color: white;
+  border: 1px solid var(--evidence0-color);
+  color: var(--evidence0-color);
   font-weight: 500;
   text-align: center;
 }
 
-.#01E1E7 {
-  color: #01e1e7;
-}
-
 table {
-  border: 1px solid white;
+  border: 1px solid var(--evidence0-color);
   margin: 0 auto 3rem auto;
 }
 td {
   padding: 10px;
-  border: 1px solid white;
+  border: 1px solid var(--evidence0-color);
 }
 
 th {
   padding: 10px;
-  border: 1px solid white;
-  background-color: #e7e7eb;
+  border: 1px solid var(--evidence0-color);
+  background-color: var(--text-color);
   color: black;
 }
 
 .trIsCorrect {
-  background-color: #01e1e7;
+  background-color: var(--evidence2-color);
   color: black;
 }
 
 .trIsIncorrect {
-  background-color: #d20094;
+  background-color: var(--evidence1-color);
 }

@@ -1,5 +1,5 @@
 :root {
-  --text-color: #blacj; /* Grigio scuro per il testo */
+  --text-color: #4a4a4a; /* Grigio scuro per il testo */
   --evidence0-color: #f39c12; /* Giallo dorato per il testo evidenziato */
   --evidence1-color: #d35400; /* Arancione scuro per i titoli */
   --evidence2-color: #e74c3c; /* Rosso per il grafico */
@@ -10,7 +10,20 @@ body {
   background-image: url(/assets/img/bgCucina.jpg);
 }
 
+#logoImg {
+  background-color: black;
+  padding: 10px;
+}
 #container {
-  background-color: rgba(243, 156, 18, 0.8);
+  background-color: rgba(255, 255, 255, 0.8);
   padding: 1rem;
+}
+
+th {
+  font-weight: 900;
+}
+
+button#trasparent {
+  background-color: var(--evidence1-color);
+  color: var(--text-color);
 }
