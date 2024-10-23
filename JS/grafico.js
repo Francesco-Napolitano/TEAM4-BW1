@@ -1,6 +1,6 @@
-function calculateResults(questions){
-    let correctAnswers =0
-    let incorrectAnswers=0
+function calculateResults(questions) {
+  let correctAnswers = 0
+  let incorrectAnswers = 0
 
   questions.forEach((question) => {
     //mi calcolo le risposte corrette
@@ -18,8 +18,9 @@ function calculateResults(questions){
   })
   return {
     correct: correctAnswers,
-    incorrect: incorrectAnswers
-}}
+    incorrect: incorrectAnswers,
+  }
+}
 const results = calculateResults(questionsWithImage)
 const ctx = document.getElementById('myDoughnutChart').getContext('2d')
 let graphicDonut = new Chart(ctx, {
