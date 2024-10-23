@@ -1,103 +1,96 @@
-
-  #container {
-    width: 50%;
-  }
-  
-  h1{
-    font-size: 3em;
-    font-weight: bold;
-  }
-
-
-
-#content{
-    margin: 0;
-    height: 18em;
-
-}
-header{
-    height: 10em;
+h1 {
+  font-size: 3em;
+  font-weight: bold;
 }
 
-  #content p{
-    font-size: 1.55em;
-    text-align: center;
-    padding: 0;
-  }
+#content {
+  margin: 0;
+  height: 18em;
+}
 
-  #title{
-    height: 4.5em;
-  }
+header {
+  height: 10em;
+}
 
-  .fas {
-    padding: 0;
-    color: #000000b0;
-  }
+#content p {
+  font-size: 1.55em;
+  text-align: center;
+  padding: 0;
+}
 
-  #star{
-    text-align: center;
-    font-size: 3em;
-    margin-top: 0.5em;
-  }
+#title {
+  height: 4.5em;
+}
 
-  label {
-    margin: 3em 0 1.5em;
-    display: block;
-    text-align: center;
-    font-size: 1.55em;
-  }
+.fas {
+  padding: 0;
+  color: #000000b0;
+}
 
-form{
-    border-bottom: 3px solid purple;
-    padding-bottom: 5px;
+#star {
+  text-align: center;
+  font-size: 3em;
+  margin-top: 0.5em;
+}
+
+label {
+  margin: 3em 0 1.5em;
+  display: block;
+  text-align: center;
+  font-size: 1.55em;
+}
+
+form {
+  border-bottom: 3px solid purple;
+  padding-bottom: 5px;
 }
 
 input {
-    width: 100%;
-    padding: 0.5em 1.5em;
-    background: transparent;
-    border: none;
-    color: #E7E7EB;
-    outline: none;
+  width: 100%;
+  padding: 0.5em 1.5em;
+  background: transparent;
+  border: none;
+  color: #e7e7eb;
+  outline: none;
 }
 
-#s1{
-    padding: 0;
+#s1 {
+  padding: 0;
 }
-#s2{
-    padding: 0;
+#s2 {
+  padding: 0;
 }
-#s3{
-    padding-right: 0.05em;
+#s3 {
+  padding-right: 0.05em;
 }
-#s4{
-    padding: 0;
+#s4 {
+  padding: 0;
 }
-#s5{
-    padding: 0;
+#s5 {
+  padding: 0;
 }
-#s6{
-    padding: 0;
+#s6 {
+  padding: 0;
 }
-#s7{
-    padding: 0;
+#s7 {
+  padding: 0;
 }
-#s8{
-    padding: 0;
+#s8 {
+  padding: 0;
 }
-#s9{
-    padding: 0;
+#s9 {
+  padding: 0;
 }
-#s10{
-    padding: 0;
-} 
- 
+#s10 {
+  padding: 0;
+}
+
 /* modifiche js */
 
-.colorStar{
-    color: #75fbfd;
+.colorStar {
+  color: #75fbfd;
 }
 
-.unselectColour{
-    color: #000000b0;
+.unselectColour {
+  color: #000000b0;
 }

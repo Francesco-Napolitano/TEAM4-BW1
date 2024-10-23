@@ -115,15 +115,19 @@ const showQuestion = (selectedQuestionsArray, questionNumber) => {
   } <span class="fucsiaColor">/ ${numberOfQuestions}</span>`
 
   //
+  startTimer(question.time)
 }
 
+// ***********************************************************************
 //
-// Legge le risposte dell'utente eseguento un loop sugli input presenti nella pagina
-// e restituendo un array di array con le risposte date dall'utente
+// readUserAnswers legge le risposte dell'utente eseguento un loop sugli input presenti nella pagina
+// e restituendo un array di array con le risposte date dall'utente.
 // Prende come parametro l'array delle domande selezionate e l'indice che indica a che domanda si trova ora il test.
 // passare questi parametri non sarebbe strattamente necessario perché si potrebbero leggere direttamente
 // ma preferisco passarli per avere una funzione più generica e una funzione che accetta gli stessi parametri
 // di showQuestion()
+//
+// ***********************************************************************
 const readUserAnswers = (questionsArray, currentQuestionIndex) => {
   w('readUserAnswers() currentQuestionIndex:', currentQuestionIndex)
 
@@ -190,8 +194,8 @@ const readUserAnswers = (questionsArray, currentQuestionIndex) => {
 
 // ***********************************************************************
 //
-// Funzione associata alla proessione del bottone per passare alla domanda successiva
-// che verifica se l'utente ha selezionato almeno una risposta.
+// buttonListener è la funzione associata alla proessione del bottone per passare
+// alla domanda successiva. Verifica se l'utente ha selezionato almeno una risposta.
 // Se non ha selezionato nessuna risposta visualizza un messaggio di errore a meno che
 // il parametro checkAnswerBeforeGoAhead sia impostato su false e in tal caso non fa
 // il controllo e passa alla domanda successiva.
@@ -322,8 +326,6 @@ divMessage = document.getElementById('divMessage')
 nextQuestionButton = document.getElementById('nextQuestionButton')
 
 //
-
-//
 // ***********************************************************************
 //
 // MAIN ROUTINE
@@ -332,7 +334,8 @@ nextQuestionButton = document.getElementById('nextQuestionButton')
 //
 
 //
-// Mostra la prima domanda prima di attivare il bottone
+// Mostra la prima domanda al caricamento della pagina
+//
 window.onload = () => {
   showQuestion(selectedQuestionsArray, currentQuestionIndex)
 
@@ -352,6 +355,7 @@ window.onload = () => {
 // il parametro della funzione checkAnswerBeforeGoAhead() verifica se è impostato il controllo delle risposte
 // prima di passare alla domanda successiva. se è impoststo su false non fa il controllo.
 // Questo servirà quando la funzione verrà chiamata allo scadere del timer
+//
 nextQuestionButton.addEventListener('click', () => {
   buttonListener(checkAnswerBeforeGoAhead)
 
