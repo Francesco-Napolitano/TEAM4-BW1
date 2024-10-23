@@ -152,6 +152,55 @@ const calculateResultsAndBuildTable = () => {
 
   lastSection.innerHTML = `<table>${resultsHTML}</table>`
   lastSection.style.display = 'none'
+
+  // Calcola la percentuale delle risposte corrette e sbagliate
+  percentageCorrect = ((correctAnswers / totalQuestions) * 100).toFixed(2)
+
+  percentageWrong = ((wrongAnswers / totalQuestions) * 100).toFixed(2)
+
+  // Stampa i risultati
+  w('correctAnswers: ', correctAnswers)
+  w('wrongAnswers: ', wrongAnswers)
+  w('totalQuestions: ', totalQuestions)
+  w('totalScore: ', totalScore)
+  w('percentageCorrect: ', percentageCorrect)
+  w('percentageWrong: ', percentageWrong)
+
+  // Pubblica i risultato sulla pagina
+
+  // <p id="correctPercentage"></p>
+  // <p id="correctNumber"></p>
+  // <p id="wrongPercentage"></p>
+  // <p id="wrongNumber"></p>
+
+  document.getElementById(
+    'correctPercentage'
+  ).innerHTML = `${percentageCorrect}%`
+  document.getElementById(
+    'correctNumber'
+  ).innerHTML = `${correctAnswers}/${totalQuestions} domande`
+  document.getElementById('wrongPercentage').innerHTML = `${percentageWrong}%`
+  document.getElementById(
+    'wrongNumber'
+  ).innerHTML = `${wrongAnswers}/${totalQuestions} domande`
+
+  if (percentageCorrect >= 60) {
+    document.getElementById('endExamText').innerHTML = `
+            <p>Congratulazioni!</p>
+            <p>Hai superato l'esame.</p>
+            <p>
+              Ti mandere il certificato in pochi minuti. Controlla la tua
+              email (controlla anche promozioni e spam).
+            </p>`
+  } else {
+    document.getElementById('endExamText').innerHTML = `
+          <p>Ci dispiace ma</p>
+          <p>Non hai superato l'esame.</p>
+          <p>
+            Riprova tra qualche giorno. Studia meglio le domande
+            a cui hai in maniera errata.
+          </p>`
+  }
 }
 
 //
@@ -192,6 +241,11 @@ const lastSection = document.getElementById('lastSection')
 // w('questionsAndAnswers: ', questionsAndAnswers)
 
 addEventListener.onload = calculateResultsAndBuildTable()
+
+// Assegna l'avanzamento pagina al click sul pulsante
+document.getElementById('trasparent').addEventListener('click', () => {
+  location.href = 'feedbackPage.html'
+})
 
 divMessage.innerHTML = `
     Hai risposto correttamente a ${correctAnswers} domande su ${totalQuestions}.<br/>

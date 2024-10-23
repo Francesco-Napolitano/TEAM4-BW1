@@ -18,13 +18,13 @@
 </head>
 
 <body>
-  <header>
-    <div id="divLogo">
-      <img id="logo" src="/assets/img/epicode_logo.png" alt="logo-epicode" />
-    </div>
-  </header>
-  <main>
-    <div id="container">
+  <div id="container">
+    <header>
+      <div id="divLogo">
+        <img id="logoImg" src="/assets/img/epicode_logo.png" alt="logo-epicode" />
+      </div>
+    </header>
+    <main>
       <section id="title">
         <h1>Risultati</h1>
         <p>Il riepilogo delle tue risposte:</p>
@@ -36,13 +36,8 @@
           <p id="correctNumber"></p>
         </div>
         <div id="graphic">
-          <div>
-            <p>Congratulazioni!</p>
-            <p>Hai superato l'esame.</p>
-            <p>
-              Ti mandere il certificato in pochi minuti. Controlla la tua
-              email (controlla anche promozioni e spam).
-            </p>
+          <canvas id="myChart"></canvas>
+          <div id="endExamText">
           </div>
         </div>
         <div id="wrongAnswers">
@@ -56,7 +51,7 @@
         <button id="trasparent">DICCI LA TUA</button>
       </section>
       <section id="lastSection"></section>
-    </div>
+  </div>
   </main>
   <script src="./JS/resultsPage.js"></script>
 </body>
