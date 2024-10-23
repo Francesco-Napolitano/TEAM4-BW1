@@ -88,9 +88,15 @@ input[type='checkbox']:checked + label::after {
   }
 
   */
-button {
-  margin-left: 11.5rem;
-}
+button {margin-left:11.5rem;}
+
+  button:disabled {
+    
+    color: #000; /* Mantieni il testo nero */
+    
+    pointer-events: none; /* Impedisce l'interazione */
+    opacity: 1; /* Mantiene l'opacità normale */
+  }
 
 input[type='checkbox'] {
   appearance: none; /* Rimuove lo stile predefinito della checkbox */
