@@ -112,7 +112,10 @@ button {
   font-size: 20px;
   background-color: #00ffff;
   border: none;
+  text-transform: uppercase;
+}
+
+.activatedButton {
   box-shadow: 0 0 3px #00ffff, 0 0 20px #00ffff, 0 0 45px #00ffff,
     0 0 180px #00ffff;
-  text-transform: uppercase;
 }
