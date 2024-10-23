@@ -54,8 +54,8 @@ sectionLastSection.appendChild(selectElement)
 // Configura un valore di default nel localStorage e attiva un eventListener se il dopic viene modificato
 localStorage.setItem('examTopic', 'HTML, CSS, JS')
 selectElement.addEventListener('change', (e) => {
+  localStorage.setItem('examTopic', e.target.value) // Non deve essere minuscolo perché nell'array delle domande è con l'iniziale maiuscola
   theme = e.target.value.toLocaleLowerCase()
-  localStorage.setItem('examTopic', theme)
 
   if (theme !== 'HTML, CSS, JS' && !document.getElementById(theme)) {
     var head = document.getElementsByTagName('head')[0]

@@ -193,7 +193,8 @@ const calculateResultsAndBuildTable = () => {
               email (controlla anche promozioni e spam).
             </p>`
     // il div che contiene i risultati, ovveroo CORRETTE o SBAGLIATE è bianco e non grigio
-    document.getElementById('correctAnswers').style.color = 'white'
+    document.getElementById('correctAnswers').style.color =
+      'var(--evidence0-color)'
   } else {
     document.getElementById('endExamText').innerHTML = `
             <p>Ci dispiace ma</p>
@@ -204,7 +205,8 @@ const calculateResultsAndBuildTable = () => {
             </p>`
 
     // il div che contiene i risultati, ovveroo CORRETTE o SBAGLIATE è bianco e non grigio
-    document.getElementById('wrongAnswers').style.color = 'white'
+    document.getElementById('wrongAnswers').style.color =
+      'var(--evidence0-color)'
   }
 }
 
@@ -228,6 +230,13 @@ const questionsAndAnswers = JSON.parse(
   localStorage.getItem('questionsAndAnswers')
 )
 w('questionsAndAnswers: ', questionsAndAnswers)
+
+// topic è l'argomento delle domande deve essere espresso come stringa ed
+// essere ASSOLUTAMENTE identico al 'topic' riportato nel file 'questions.js'
+const topic =
+  localStorage.getItem('examTopic') !== null
+    ? localStorage.getItem('examTopic')
+    : 'HTML, CSS, JS' // Sempre il solito valore di defaulr
 
 // Individia il DIV messaggio
 const divMessage = document.getElementById('divMessage')
