@@ -134,3 +134,8 @@ input[type='checkbox']:checked::after {
   vertical-align: middle;
   margin-right: 10px;
 }
+
+select {
+  font-family: 'outfit', sans-serif;
+  margin: 15rem auto 5rem auto;
+}
