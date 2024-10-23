@@ -43,7 +43,7 @@ label {
 }
 
 form {
-  border-bottom: 3px solid purple;
+  border-bottom: 3px solid var(--evidence1-color);
   padding-bottom: 5px;
 }
 
@@ -52,7 +52,7 @@ input {
   padding: 0.5em 1.5em;
   background: transparent;
   border: none;
-  color: #e7e7eb;
+  color: var(--text-color);
   outline: none;
 }
 
@@ -104,9 +104,9 @@ input {
 /* modifiche js */
 
 .colorStar {
-  color: #00ffff;
+  color: var(--evidence2-color);
 }
 
 .unselectColour {
-  color: #000000b0;
+  color: transparent;
 }

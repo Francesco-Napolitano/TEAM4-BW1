@@ -5,12 +5,6 @@
 // ***********************************************************************
 //
 
-// Creo questa funzione perché scrivere tutte le volte 'console.log()' è una palla!
-// uso la lettera 'w', che sta anche per 'write', perché è poco usata negli esercizi
-const w = (param, param1) => {
-  param1 ? console.log(`${param}`, param1) : console.log(param)
-}
-
 //
 // ***********************************************************************
 //
@@ -71,5 +65,8 @@ selectElement.addEventListener('change', (e) => {
     link.href = `./assets/CSS/_${theme}.css`
     link.media = 'all'
     head.appendChild(link)
+  }
+  if (theme === 'HTML, CSS, JS') {
+    document.getElementById(theme).remove()
   }
 })
