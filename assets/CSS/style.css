@@ -65,6 +65,14 @@ button {
   color: #d20094;
 }
 
+.cyanColor {
+  color: #00ffff;
+}
+
+.whiteColor {
+  color: white;
+}
+
 #divLogo,
 #divTimer {
   height: 200px;

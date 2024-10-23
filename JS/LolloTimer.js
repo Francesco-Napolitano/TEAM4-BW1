@@ -1,19 +1,21 @@
-var currentTimeout = null // Variabile globale per tracciare il timeout corrente
-var svgContainer = null // Variabile globale per tracciare l'SVG corrente
+let currentTimeout = null // letiabile globale per tracciare il timeout corrente
+let svgContainer = null // letiabile globale per tracciare l'SVG corrente
 
-function startTimer(seconds) {
+const sound = new Audio('/assets/sounds/message-13716.mp3') // Suono di notifica
+
+const startTimer = (seconds) => {
   // Se esiste un timer attivo, lo cancella e rimuove il timer SVG corrente
   if (currentTimeout) {
     clearTimeout(currentTimeout)
     destroyTimer() // Rimuove l'SVG esistente prima di creare uno nuovo
   }
 
-  var width = 250,
+  let width = 250,
     height = 150,
     timePassed = 0,
     timeLimit = seconds
 
-  var fields = [
+  let fields = [
     {
       value: timeLimit,
       size: timeLimit,
@@ -23,7 +25,7 @@ function startTimer(seconds) {
     },
   ]
 
-  var arc = d3.svg
+  let arc = d3.svg
     .arc()
     .innerRadius(width / 3 - 50)
     .outerRadius(width / 3 - 35)
@@ -39,7 +41,7 @@ function startTimer(seconds) {
     .attr('width', width)
     .attr('height', height)
 
-  var field = svgContainer
+  let field = svgContainer
     .selectAll('.field')
     .data(fields)
     .enter()
@@ -47,14 +49,14 @@ function startTimer(seconds) {
     .attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')')
     .attr('class', 'field')
 
-  var back = field
+  let back = field
     .append('path')
     .attr('class', 'path path--background')
     .attr('d', arc)
 
-  var path = field.append('path').attr('class', 'path path--foreground')
+  let path = field.append('path').attr('class', 'path path--foreground')
 
-  var label = field.append('text').attr('class', 'label').attr('dy', '.35em')
+  let label = field.append('text').attr('class', 'label').attr('dy', '.35em')
 
   ;(function update() {
     field.each(function (d) {
@@ -73,10 +75,13 @@ function startTimer(seconds) {
       currentTimeout = setTimeout(update, 1000 - (timePassed % 1000)) // Registra il nuovo timeout
     } else {
       destroyTimer()
+      buttonListener(false) // Chiama la funzione di callback
     }
   })()
 
   function pulseText() {
+    sound ? sound.play() : {} // Suona la notifica
+
     back.classed('pulse', true)
     label.classed('pulse', true)
 
@@ -102,11 +107,11 @@ function startTimer(seconds) {
       svgContainer.remove() // Rimuove l'SVG esistente quando si cancella il timer
       svgContainer = null
     }
-    currentTimeout = null // Resetta la variabile di timeout
+    currentTimeout = null // Resetta la letiabile di timeout
   }
 
   function arcTween(b) {
-    var i = d3.interpolate(
+    let i = d3.interpolate(
       {
         value: b.previous,
       },
