@@ -97,6 +97,10 @@ input {
   margin: 0;
 }
 
+#nextQuestionButton{
+  height: 4rem;
+}
+
 /* modifiche js */
 
 .colorStar {
