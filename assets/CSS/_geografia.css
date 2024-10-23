@@ -1,0 +1,36 @@
+:root {
+  --text-color: #2c3e50; /* Blu notte per il testo */
+  --evidence0-color: #16a085; /* Verde acqua per il testo evidenziato */
+  --evidence1-color: #2980b9; /* Azzurro oceano per i titoli */
+  --evidence2-color: #96cc02; /* Arancione terra per il grafico */
+  --evidence3-color: #3498db; /* Blu cielo per il grafico */
+}
+
+body {
+  background-image: url(/assets/img/bgGeografia.jpg);
+}
+
+#logoImg {
+  background-color: black;
+  padding: 10px;
+}
+
+#container {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 1rem;
+}
+
+img#themeIcon {
+  position: absolute;
+  width: 30px;
+  transform: translate(-50%, +100%) rotate(25deg);
+}
+
+th {
+  font-weight: 900;
+}
+
+button#trasparent {
+  background-color: var(--evidence1-color);
+  color: var(--text-color);
+}

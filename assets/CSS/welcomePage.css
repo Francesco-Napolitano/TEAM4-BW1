@@ -4,7 +4,6 @@
 h1 {
   text-align: left;
   font-size: 5rem;
-  font-family: 'outfit', sans-serif;
 }
 
 .bold {
@@ -17,10 +16,8 @@ h1 {
 
 h2 {
   color: var(--evidence1-color);
-
   font-weight: bold;
   font-size: 2rem;
-  font-family: 'outfit', sans-serif;
 }
 
 p {
@@ -51,7 +48,6 @@ button {
 
 button:disabled {
   color: #000; /* Mantieni il testo nero */
-
   pointer-events: none; /* Impedisce l'interazione */
   opacity: 1; /* Mantiene l'opacità normale */
 }
@@ -74,7 +70,7 @@ input[type='checkbox']:checked::after {
   position: absolute;
   width: 15px;
   height: 10px;
-  border: solid#b51289;
+  border: solid var(--evidence1-color);
   border-width: 0 0 6px 6px;
   transform: rotate(-45deg) translate(0px, -5px);
 }
@@ -93,6 +89,5 @@ input[type='checkbox']:checked::after {
 }
 
 select {
-  font-family: 'outfit', sans-serif;
   margin: 15rem auto 5rem auto;
 }
