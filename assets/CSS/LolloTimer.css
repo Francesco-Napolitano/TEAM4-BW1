@@ -1,12 +1,10 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:800);
-
 #divTimer {
   margin: auto;
   width: 150px;
 }
 
 .path--background {
-  fill: var(--evidence1-color);
+  fill: var(--evidence2-color);
   stroke: var(--evidence0-color);
   stroke-width: 0px;
 }
@@ -22,8 +20,12 @@
 }
 
 .label {
-  font: 3rem;
-  font-weight: 900;
+  font-size: 2.5rem;
   text-anchor: middle;
-  fill: var(--evidence1-color);
+  fill: var(--text-color);
+}
+.remainigSeconds {
+  font-size: 0.7rem;
+  text-anchor: middle;
+  fill: var(--text-color);
 }

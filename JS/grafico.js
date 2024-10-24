@@ -15,29 +15,26 @@ const drawGraphic = (
   colorCorrect,
   colorWrong
 ) => {
-  const config = {
-    cutout: '10%',
+  const data = {
+    datasets: [
+      {
+        data: [correctPercent, wrongPercent],
+        backgroundColor: [colorCorrect, colorWrong],
+        borderWidth: 1,
+        cutout: '85%',
+      },
+    ],
   }
-  const ctx = document.getElementById(canvasId).getContext('2d')
-  let graphicDonut = new Chart(ctx, {
-    type: 'doughnut',
-    data: {
-      datasets: [
-        {
-          data: [correctPercent, wrongPercent],
-          backgroundColor: [colorCorrect, colorWrong],
-          borderColor: [],
-          borderWidth: 1,
-        },
-      ],
-    },
 
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {},
-    },
-  })
+  // config
+  const config = {
+    type: 'doughnut',
+    data,
+    options: {},
+  }
+
+  // render init block
+  const myChart = new Chart(document.getElementById(canvasId), config)
 }
 
 // drawGraphic('myDoughnutChart', 87, 13, '#00ffff', '#d20094')

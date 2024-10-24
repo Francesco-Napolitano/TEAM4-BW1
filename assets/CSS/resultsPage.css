@@ -1,3 +1,7 @@
+header {
+  height: 150px;
+}
+
 #title > h1 {
   font-size: 5em;
 }
@@ -29,14 +33,9 @@
   text-align: center;
   display: inline-block;
   position: relative;
-}
-
-
-#graphic
- {
   vertical-align: middle;
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
   border: 1px solid var(--evidence0-color);
 }
 
@@ -46,6 +45,11 @@
   width: 300px;
   height: 300px;
   border: 1px solid var(--evidence0-color);
+}
+
+#correctAnswers p:first-child,
+#wrongAnswers p:first-child {
+  margin-top: 4rem;
 }
 
 #graphic > div {
