@@ -15,9 +15,6 @@ const drawGraphic = (
   colorCorrect,
   colorWrong
 ) => {
-  const config = {
-    cutout: '10%',
-  }
   const ctx = document.getElementById(canvasId).getContext('2d')
   let graphicDonut = new Chart(ctx, {
     type: 'doughnut',
@@ -33,6 +30,7 @@ const drawGraphic = (
     },
 
     options: {
+      cutoutPercentage: 70,
       responsive: true,
       maintainAspectRatio: false,
       plugins: {},
@@ -40,4 +38,4 @@ const drawGraphic = (
   })
 }
 
-// drawGraphic('myDoughnutChart', 87, 13, '#00ffff', '#d20094')
+drawGraphic('myDoughnutChart', 87, 13, '#00ffff', '#d20094')
