@@ -1,64 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RISULTATI | BENCHMARK</title>
+    <meta
+      name="description"
+      content="View your Benchmark test results, including correct and incorrect answers along with a summary chart."
+    />
+    <link rel="stylesheet" href="./assets/CSS/reset.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="https://s3-eu-west-1.amazonaws.com/tpd/logos/62a6277627ee655c1226b624/0x0.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./assets/CSS/style.css" />
+    <link rel="stylesheet" href="./assets/CSS/resultsPage.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RISULTATI | BENCHMARK</title>
-  <link rel="stylesheet" href="./assets/CSS/reset.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
-  <link rel="icon" href="https://s3-eu-west-1.amazonaws.com/tpd/logos/62a6277627ee655c1226b624/0x0.png" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="./assets/CSS/style.css" />
-  <link rel="stylesheet" href="./assets/CSS/resultsPage.css" />
-</head>
-
-<body>
-  <div id="container">
-    <header>
-      <div id="divLogo">
-        <img id="logoImg" src="/assets/img/epicode_logo.png" alt="logo-epicode" />
-      </div>
-    </header>
-    <main>
-      <section id="title">
-        <h1>Risultati</h1>
-        <p>Il riepilogo delle tue risposte:</p>
-      </section>
-      <section id="content">
-        <div id="correctAnswers">
-          <p id="staticOne">Corrette</p>
-          <p id="correctPercentage"></p>
-          <p id="correctNumber"></p>
+  <body>
+    <div id="container">
+      <header>
+        <div id="divLogo">
+          <img
+            id="logoImg"
+            src="/assets/img/epicode_logo.png"
+            alt="logo-epicode"
+          />
         </div>
-        <div id="graphic">
-          <canvas id="myDoughnutChart"></canvas>
-          <div id="endExamText">
+      </header>
+      <main>
+        <section id="title">
+          <h1>Risultati</h1>
+          <p>Il riepilogo delle tue risposte:</p>
+        </section>
+        <section id="content">
+          <div id="correctAnswers">
+            <p id="staticOne">Corrette</p>
+            <p id="correctPercentage"></p>
+            <p id="correctNumber"></p>
           </div>
-        </div>
-        <div id="wrongAnswers">
-          <p id="staticTwo">Sbagliate</p>
-          <p id="wrongPercentage"></p>
-          <p id="wrongNumber"></p>
-        </div>
-      </section>
-      <section id="button">
-        <div id="divMessage"></div>
-        <button id="trasparent">DICCI LA TUA</button>
-      </section>
-      <section id="lastSection"></section>
-  </div>
-  </main>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+          <div id="graphic">
+            <canvas id="myDoughnutChart"></canvas>
+            <div id="endExamText"></div>
+          </div>
+          <div id="wrongAnswers">
+            <p id="staticTwo">Sbagliate</p>
+            <p id="wrongPercentage"></p>
+            <p id="wrongNumber"></p>
+          </div>
+        </section>
+        <section id="button">
+          <div id="divMessage"></div>
+          <button id="trasparent">DICCI LA TUA</button>
+        </section>
+        <section id="lastSection"></section>
+      </main>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 
-  <script src="./JS/grafico.js"></script>
-  <script src="./JS/resultsPage.js"></script>
-   
-  <script src="./JS/otherPageEasterEgg.js"></script>
-</body>
+    <script src="./JS/grafico.js"></script>
+    <script src="./JS/resultsPage.js"></script>
 
+    <script src="./JS/otherPageEasterEgg.js"></script>
+  </body>
 </html>
