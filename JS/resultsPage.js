@@ -208,6 +208,13 @@ const calculateResultsAndBuildTable = () => {
     document.getElementById('wrongAnswers').style.color =
       'var(--evidence0-color)'
   }
+  drawGraphic(
+    'myDoughnutChart',
+    percentageCorrect,
+    percentageWrong,
+    '#00ffff',
+    '#d20094'
+  )
 }
 
 //
