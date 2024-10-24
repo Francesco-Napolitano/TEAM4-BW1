@@ -27,8 +27,8 @@ const startTimer = (seconds) => {
 
   let arc = d3.svg
     .arc()
-    .innerRadius(width / 3 - 50)
-    .outerRadius(width / 3 - 35)
+    .innerRadius(width / 3 - 35)
+    .outerRadius(width / 3 - 25)
     .startAngle(0)
     .endAngle(function (d) {
       return (d.value / d.size) * 2 * Math.PI
@@ -56,8 +56,12 @@ const startTimer = (seconds) => {
 
   let path = field.append('path').attr('class', 'path path--foreground')
 
-  let label = field.append('text').attr('class', 'label').attr('dy', '.35em')
-
+  let label = field
+    .append('text')
+    .attr('class', 'remainigSeconds')
+    .attr('dy', '3em')
+    .text('Secondi')
+  label = field.append('text').attr('class', 'label').attr('dy', '.35em')
   ;(function update() {
     field.each(function (d) {
       ;(d.previous = d.value), (d.value = d.update(timePassed))
