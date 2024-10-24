@@ -40,7 +40,6 @@ const allStars = document.querySelectorAll('#star i')
 const reviewInput = document.getElementById('review')
 
 // Variabile per tracciare se una valutazione è stata selezionata
-
 let ratingSelected = false
 
 //
