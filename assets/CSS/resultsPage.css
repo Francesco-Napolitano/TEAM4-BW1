@@ -36,7 +36,7 @@ header {
   vertical-align: middle;
   width: 300px;
   height: 300px;
-  border: 1px solid var(--evidence0-color);
+  
 }
 
 #correctAnswers,
@@ -44,7 +44,7 @@ header {
   vertical-align: middle;
   width: 300px;
   height: 300px;
-  border: 1px solid var(--evidence0-color);
+  
 }
 
 #correctAnswers p:first-child,
