@@ -10,18 +10,18 @@
 //
 const drawGraphic = (
   canvasId,
-  correctPercent,
   wrongPercent,
+  correctPercent,
   colorCorrect,
   colorWrong
 ) => {
   const data = {
     datasets: [
       {
-        data: [correctPercent, wrongPercent],
+        data: [wrongPercent, correctPercent],
         backgroundColor: [colorCorrect, colorWrong],
-        borderWidth: 1,
-        cutout: '85%',
+        borderWidth: 0,
+        cutout: '75%',
       },
     ],
   }

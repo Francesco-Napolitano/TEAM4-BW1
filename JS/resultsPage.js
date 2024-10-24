@@ -187,7 +187,7 @@ const calculateResultsAndBuildTable = () => {
   if (percentageCorrect >= 60) {
     document.getElementById('endExamText').innerHTML = `
             <p>Congratulazioni!</p>
-            <p span="cyanColor">Hai superato l'esame.</p>
+            <p class="cyanColor">Hai superato l'esame.</p>
             <p>
               Ti mandere il certificato in pochi minuti. Controlla la tua
               email (controlla anche promozioni e spam).
@@ -204,16 +204,28 @@ const calculateResultsAndBuildTable = () => {
               a cui hai in maniera errata.
             </p>`
 
-    // il div che contiene i risultati, ovveroo CORRETTE o SBAGLIATE è bianco e non grigio
+    // il div che contiene i risultati, ovvero CORRETTE o SBAGLIATE è bianco e non grigio
     document.getElementById('wrongAnswers').style.color =
       'var(--evidence0-color)'
   }
+
+  // Legge la variabile dallo stylesheet e la usa per colorare il grafico
+  // la funzione del vgrafico non legge le variabili CSS
+  // https://stackoverflow.com/questions/41725725/access-css-variable-from-javascript
+  let wrongColor = getComputedStyle(document.body).getPropertyValue(
+    '--evidence1-color'
+  )
+  let correctColor = getComputedStyle(document.body).getPropertyValue(
+    '--evidence2-color'
+  )
+  // il grafico disegna prima quelle sbagliate che stanno sulla destra
+  // quindi quelle corrette che stabbo sulla sinistra
   drawGraphic(
     'myDoughnutChart',
-    percentageCorrect,
     percentageWrong,
-    '#00ffff',
-    '#d20094'
+    percentageCorrect,
+    wrongColor,
+    correctColor
   )
 }
 

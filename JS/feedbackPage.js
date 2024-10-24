@@ -10,6 +10,8 @@ const unselectColour = () => {
     let starColoured = document.getElementById(`S${i}`)
     starColoured.classList.remove('colorStar')
   }
+  nextQuestionButton.disabled = true
+  nextQuestionButton.classList.remove('activatedButton')
 }
 
 //
@@ -30,6 +32,14 @@ const topic =
     ? localStorage.getItem('examTopic')
     : 'HTML, CSS, JS' // Sempre il solito valore di defaulr
 
+// aggiunto sezione che illumina il button quando inserisci il feedback
+const nextQuestionButton = document.getElementById('nextQuestionButton')
+const allStars = document.querySelectorAll('#star i')
+const reviewInput = document.getElementById('review')
+
+// Variabile per tracciare se una valutazione è stata selezionata
+let ratingSelected = false
+
 //
 // ***********************************************************************
 //
@@ -39,29 +49,17 @@ const topic =
 //
 
 stars.addEventListener('click', (e) => {
+  // Rimuove il colore da tutte le stelline
   unselectColour()
+
   //   const divStar = document.getElementById('star')
   const selectedStar = parseInt(e.target.id.replace('S', ''))
   for (i = 1; i <= selectedStar; i++) {
     let starColoured = document.getElementById(`S${i}`)
     starColoured.classList.add('colorStar')
   }
-})
 
-// aggiunto sezione che illumina il button quando inserisci il feedback
-const nextQuestionButton = document.getElementById('nextQuestionButton')
-const allStars = document.querySelectorAll('#star i')
-const reviewInput = document.getElementById('review')
-
-nextQuestionButton.disabled = true
-
-// Variabile per tracciare se una valutazione è stata selezionata
-let ratingSelected = false
-
-allStars.forEach((star) => {
-  star.addEventListener('click', () => {
-    ratingSelected = true
-  })
+  ratingSelected = true
 })
 
 // Abilita o disabilita il bottone in base alla presenza del feedback

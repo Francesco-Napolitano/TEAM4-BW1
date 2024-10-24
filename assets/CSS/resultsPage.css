@@ -34,8 +34,8 @@ header {
   display: inline-block;
   position: relative;
   vertical-align: middle;
-  width: 300px;
-  height: 300px;
+  width: 350px;
+  height: 350px;
   border: 1px solid var(--evidence0-color);
 }
 
