@@ -24,9 +24,6 @@ let topics = questionsWithImage
     return !pos || item != array[pos - 1]
   })
 
-// Istanzia la variabile che definisce il tema (è il topic in minuscolo)
-let theme = topic.toLocaleLowerCase()
-
 //
 // ***********************************************************************
 //

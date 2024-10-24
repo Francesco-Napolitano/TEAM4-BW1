@@ -290,6 +290,9 @@ const topic =
     ? localStorage.getItem('examTopic')
     : 'HTML, CSS, JS' // Sempre il solito valore di defaulr
 
+// Definisce il tema della pagina che altro non è che il topi tutto minuscolo
+const theme = topic.toLowerCase()
+
 // difficulty è il livello di difficoltà delle domande
 // deve essere espresso con un intero tra 1 e 3
 const difficulty = 1
@@ -335,10 +338,18 @@ const nextQuestionButton = document.getElementById('nextQuestionButton')
 // ***********************************************************************
 //
 
-//
-// Mostra la prima domanda al caricamento della pagina
-//
+// Utilizzo l'emento on load per far partire il codice solo dopo che la pagina
+//  è stata caricata totalmente
 window.onload = () => {
+  // Controlla se il tema è corretto e nel caso lo attiva
+  checkTheme(theme)
+
+  // Disegna il link alla home in fomdo alla pagina
+  placeHomeLink()
+
+  //
+  // Mostra la prima domanda al caricamento della pagina
+  //
   showQuestion(selectedQuestionsArray, currentQuestionIndex)
 
   // definisce i checkBox e i radio per verificare l'evento di attivazione del bottone
@@ -350,27 +361,27 @@ window.onload = () => {
   checkboxes.forEach((checkbox) => {
     checkbox.addEventListener('change', checkActivation) // Ogni volta che cambia, controlla lo stato
   })
-}
 
-//
-// Aggiunge un event listener al bottone per passare alla domanda successiva
-// il parametro della funzione checkAnswerBeforeGoAhead() verifica se è impostato il controllo delle risposte
-// prima di passare alla domanda successiva. se è impoststo su false non fa il controllo.
-// Questo servirà quando la funzione verrà chiamata allo scadere del timer
-//
-nextQuestionButton.addEventListener('click', () => {
-  buttonListener(checkAnswerBeforeGoAhead)
+  //
+  // Aggiunge un event listener al bottone per passare alla domanda successiva
+  // il parametro della funzione checkAnswerBeforeGoAhead() verifica se è impostato il controllo delle risposte
+  // prima di passare alla domanda successiva. se è impoststo su false non fa il controllo.
+  // Questo servirà quando la funzione verrà chiamata allo scadere del timer
+  //
+  nextQuestionButton.addEventListener('click', () => {
+    buttonListener(checkAnswerBeforeGoAhead)
 
-  // Ricerca tutti i checkbox e i radio per controllare se almeno uno è selezionato
-  checkboxes = document.querySelectorAll(
-    'input[type="checkbox"], input[type="radio"]'
-  )
+    // Ricerca tutti i checkbox e i radio per controllare se almeno uno è selezionato
+    checkboxes = document.querySelectorAll(
+      'input[type="checkbox"], input[type="radio"]'
+    )
 
-  // controlla se il bottone è attivo e lo spegne nel caso sia una nuova domanda
-  checkActivation()
+    // controlla se il bottone è attivo e lo spegne nel caso sia una nuova domanda
+    checkActivation()
 
-  // Aggiunge l'evento 'change' a tutti i checkbox e radio per illuminare il bottone
-  checkboxes.forEach((checkbox) => {
-    checkbox.addEventListener('change', checkActivation) // Ogni volta che cambia, controlla lo stato
+    // Aggiunge l'evento 'change' a tutti i checkbox e radio per illuminare il bottone
+    checkboxes.forEach((checkbox) => {
+      checkbox.addEventListener('change', checkActivation) // Ogni volta che cambia, controlla lo stato
+    })
   })
-})
+}
