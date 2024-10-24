@@ -37,4 +37,4 @@ const drawGraphic = (
   const myChart = new Chart(document.getElementById(canvasId), config)
 }
 
-// drawGraphic('myDoughnutChart', 87, 13, '#00ffff', '#d20094')
+drawGraphic('myDoughnutChart', 87, 13, '#00ffff', '#d20094')

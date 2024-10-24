@@ -1,74 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BENVENUTO | BENCHMARK</title>
+    <meta
+      name="description"
+      content="Welcome to your exam on Benchmark. Follow the instructions to start and complete the test within the time limit."
+    />
+    <link rel="stylesheet" href="./assets/CSS/reset.css" />
+    <link
+      rel="icon"
+      href="https://s3-eu-west-1.amazonaws.com/tpd/logos/62a6277627ee655c1226b624/0x0.png"
+    />
+    <link rel="stylesheet" href="./assets/CSS/style.css" />
+    <link rel="stylesheet" href="./assets/CSS/welcomePage.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WELCOME</title>
-
-  <link rel="stylesheet" href="./assets/CSS/reset.css" />
-  <link rel="icon" href="https://s3-eu-west-1.amazonaws.com/tpd/logos/62a6277627ee655c1226b624/0x0.png" />
-  <link rel="stylesheet" href="./assets/CSS/style.css" />
-  <link rel="stylesheet" href="./assets/CSS/welcomePage.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap"
-    rel="stylesheet" />
-</head>
-
-<body>
-  <div id="container">
-    <header>
-      <div id="divLogo">
-        <img id="logoImg" src="/assets/img/epicode_logo.png" alt="logo-epicode" />
-      </div>
-      <div id="divTimer"></div>
-    </header>
-    <main>
-      <section id="title">
-        <h1>Benvenuto <br /><span class="bold"> al tuo esame</span></h1>
-      </section>
-      <section id="content">
-        <div id="instructions">
-          <h2>Istruzioni</h2>
-          <p>
-            Non ci aspettiamo che la maggior parte degli ingegneri conosca le risposte a tutte queste<br />
-            domande, quindi non preoccuparti se non sei sicuro di alcune di esse.
-          </p>
+  <body>
+    <div id="container">
+      <header>
+        <div id="divLogo">
+          <img
+            id="logoImg"
+            src="/assets/img/epicode_logo.png"
+            alt="logo-epicode"
+          />
         </div>
-        <div id="list">
-          <ul>
-            <li>
-              Ogni domanda è <span class="bold">temporizzata</span> e può essere
-              <span class="bold">risposta una sola volta</span>.
-            </li>
-            <li>
-              Cambiare scheda del browser o aprire altre finestre
-              <span class="bold">invaliderà la domanda</span>.
-            </li>
-            <li>
-              Questo esame durerà circa
-              <span class="bold">0-5 minuti</span>.
-            </li>
-          </ul>
-        </div>
-      </section>
-      <section id="button">
-        <div id="terms">
-          <input type="checkbox" id="checkBox" /><label for="checkBox" id="check">
-            Prometto di rispondere da solo senza l'aiuto di nessuno
-          </label>
-          <button id="buttonProceed" disabled>Procedi</button>
-        </div>
-      </section>
-      <section id="lastSection"></section>
-  </div>
-  </main>
-  <script src="./JS/welcomePage.js"></script>
-  <!-- ;) -->
-  <script src="./JS/questions.js"></script>
-  <script src="./JS/welcomePageEasterEgg.js"></script>
-</body>
-
+        <div id="divTimer"></div>
+      </header>
+      <main>
+        <section id="title">
+          <h1>Benvenuto <br /><span class="bold"> al tuo esame</span></h1>
+        </section>
+        <section id="content">
+          <div id="instructions">
+            <h2>Istruzioni</h2>
+            <p>
+              Non ci aspettiamo che la maggior parte degli ingegneri conosca le
+              risposte a tutte queste<br />
+              domande, quindi non preoccuparti se non sei sicuro di alcune di
+              esse.
+            </p>
+          </div>
+          <div id="list">
+            <ul>
+              <li>
+                Ogni domanda è <span class="bold">temporizzata</span> e può
+                essere <span class="bold">risposta una sola volta</span>.
+              </li>
+              <li>
+                Cambiare scheda del browser o aprire altre finestre
+                <span class="bold">invaliderà la domanda</span>.
+              </li>
+              <li>
+                Questo esame durerà circa
+                <span class="bold">0-5 minuti</span>.
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section id="button">
+          <div id="terms">
+            <input type="checkbox" id="checkBox" /><label
+              for="checkBox"
+              id="check"
+            >
+              Prometto di rispondere da solo senza l'aiuto di nessuno
+            </label>
+            <button id="buttonProceed" disabled>Procedi</button>
+          </div>
+        </section>
+        <section id="lastSection"></section>
+      </main>
+    </div>
+    <script src="./JS/welcomePage.js"></script>
+    <!-- ;) -->
+    <script src="./JS/questions.js"></script>
+    <script src="./JS/welcomePageEasterEgg.js"></script>
+  </body>
 </html>

@@ -4,7 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RESULTS</title>
+  <title>RISULTATI | BENCHMARK</title>
+  <meta name="description"
+    content="View your Benchmark test results, including correct and incorrect answers along with a summary chart." />
   <link rel="stylesheet" href="./assets/CSS/reset.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -37,8 +39,7 @@
         </div>
         <div id="graphic">
           <canvas id="myDoughnutChart"></canvas>
-          <div id="endExamText">
-          </div>
+          <div id="endExamText"></div>
         </div>
         <div id="wrongAnswers">
           <p id="staticTwo">Sbagliate</p>
@@ -51,9 +52,9 @@
         <button id="trasparent">DICCI LA TUA</button>
       </section>
       <section id="lastSection"></section>
+    </main>
   </div>
-  </main>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 
   <script src="./JS/grafico.js"></script>
   <script src="./JS/resultsPage.js"></script>
