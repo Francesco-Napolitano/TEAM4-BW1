@@ -10,6 +10,8 @@ const unselectColour = () => {
     let starColoured = document.getElementById(`S${i}`)
     starColoured.classList.remove('colorStar')
   }
+  nextQuestionButton.disabled = true
+  nextQuestionButton.classList.remove('activatedButton')
 }
 
 //
@@ -46,6 +48,7 @@ stars.addEventListener('click', (e) => {
     let starColoured = document.getElementById(`S${i}`)
     starColoured.classList.add('colorStar')
   }
+  ratingSelected = true
 })
 
 // aggiunto sezione che illumina il button quando inserisci il feedback
@@ -57,12 +60,6 @@ nextQuestionButton.disabled = true
 
 // Variabile per tracciare se una valutazione è stata selezionata
 let ratingSelected = false
-
-allStars.forEach((star) => {
-  star.addEventListener('click', () => {
-    ratingSelected = true
-  })
-})
 
 // Abilita o disabilita il bottone in base alla presenza del feedback
 reviewInput.addEventListener('input', () => {
