@@ -34,6 +34,9 @@ const topic =
     ? localStorage.getItem('examTopic')
     : 'HTML, CSS, JS' // Sempre il solito valore di defaulr
 
+// Definisce il tema della pagina che altro non è che il topi tutto minuscolo
+const theme = topic.toLowerCase()
+
 // aggiunto sezione che illumina il button quando inserisci il feedback
 const nextQuestionButton = document.getElementById('nextQuestionButton')
 const allStars = document.querySelectorAll('#star i')
@@ -50,28 +53,39 @@ let ratingSelected = false
 // ***********************************************************************
 //
 
-stars.addEventListener('click', (e) => {
-  // Rimuove il colore da tutte le stelline
-  unselectColour()
+// Utilizzo l'emento on load per far partire il codice solo dopo che la pagina
+//  è stata caricata totalmente
+window.onload = () => {
+  // Controlla se il tema è corretto e nel caso lo attiva
+  checkTheme(theme)
 
-  //   const divStar = document.getElementById('star')
-  const selectedStar = parseInt(e.target.id.replace('S', ''))
-  for (i = 1; i <= selectedStar; i++) {
-    let starColoured = document.getElementById(`S${i}`)
-    starColoured.classList.add('colorStar')
-  }
-  ratingSelected = true
-})
+  // Disegna il link alla home in fomdo alla pagina
+  placeHomeLink()
 
-// Variabile per tracciare se una valutazione è stata selezionata
+  // Attiva il check del clieck sulle stessline
+  stars.addEventListener('click', (e) => {
+    // Rimuove il colore da tutte le stelline
+    unselectColour()
 
-// Abilita o disabilita il bottone in base alla presenza del feedback
-reviewInput.addEventListener('input', () => {
-  if (ratingSelected && reviewInput.value.trim() !== '') {
-    nextQuestionButton.disabled = false
-    nextQuestionButton.classList.add('activatedButton')
-  } else {
-    nextQuestionButton.disabled = true
-    nextQuestionButton.classList.remove('activatedButton')
-  }
-})
+    //   const divStar = document.getElementById('star')
+    const selectedStar = parseInt(e.target.id.replace('S', ''))
+    for (i = 1; i <= selectedStar; i++) {
+      let starColoured = document.getElementById(`S${i}`)
+      starColoured.classList.add('colorStar')
+    }
+    ratingSelected = true
+  })
+
+  // Variabile per tracciare se una valutazione è stata selezionata
+
+  // Abilita o disabilita il bottone in base alla presenza del feedback
+  reviewInput.addEventListener('input', () => {
+    if (ratingSelected && reviewInput.value.trim() !== '') {
+      nextQuestionButton.disabled = false
+      nextQuestionButton.classList.add('activatedButton')
+    } else {
+      nextQuestionButton.disabled = true
+      nextQuestionButton.classList.remove('activatedButton')
+    }
+  })
+}

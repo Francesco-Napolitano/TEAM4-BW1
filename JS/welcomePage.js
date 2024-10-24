@@ -41,6 +41,9 @@ const topic =
     ? localStorage.getItem('examTopic')
     : 'HTML, CSS, JS' // Sempre il solito valore di defaulr
 
+// Definisce il tema della pagina che altro non è che il topi tutto minuscolo
+const theme = topic.toLowerCase()
+
 //
 // ***********************************************************************
 //
@@ -49,25 +52,29 @@ const topic =
 // ***********************************************************************
 //
 
-// Di default spegne e disabilità il bottone
-if (buttonProceed.classList.contains('activatedButton')) {
-  buttonProceed.classList.remove('activatedButton')
-}
-buttonProceed.disabled = true
-
-// Assegna l'azione al check del checkbox
-checkBox.addEventListener('change', function () {
-  if (this.checked) {
-    buttonProceed.disabled = false
-    buttonProceed.classList.add('activatedButton')
-  } else {
-    buttonProceed.disabled = true
+// Utilizzo l'emento on load per far partire il codice solo dopo che la pagina
+//  è stata caricata totalmente
+window.onload = () => {
+  // Di default spegne e disabilità il bottone
+  if (buttonProceed.classList.contains('activatedButton')) {
     buttonProceed.classList.remove('activatedButton')
   }
-})
+  buttonProceed.disabled = true
 
-// Assegna l'azione alla pressione del bottone
-document.getElementById('buttonProceed')
-buttonProceed.addEventListener('click', function () {
-  location.href = 'questionPage.html'
-})
+  // Assegna l'azione al check del checkbox
+  checkBox.addEventListener('change', function () {
+    if (this.checked) {
+      buttonProceed.disabled = false
+      buttonProceed.classList.add('activatedButton')
+    } else {
+      buttonProceed.disabled = true
+      buttonProceed.classList.remove('activatedButton')
+    }
+  })
+
+  // Assegna l'azione alla pressione del bottone
+  document.getElementById('buttonProceed')
+  buttonProceed.addEventListener('click', function () {
+    location.href = 'questionPage.html'
+  })
+}

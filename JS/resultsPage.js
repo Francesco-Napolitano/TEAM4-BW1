@@ -212,20 +212,25 @@ const calculateResultsAndBuildTable = () => {
   // Legge la variabile dallo stylesheet e la usa per colorare il grafico
   // la funzione del vgrafico non legge le variabili CSS
   // https://stackoverflow.com/questions/41725725/access-css-variable-from-javascript
-  let wrongColor = getComputedStyle(document.body).getPropertyValue(
-    '--evidence1-color'
-  )
-  let correctColor = getComputedStyle(document.body).getPropertyValue(
-    '--evidence2-color'
-  )
+
+  let correctColor = getComputedStyle(document.documentElement)
+    .getPropertyValue('--evidence2-color')
+    .trim()
+
+  let wrongColor = getComputedStyle(document.documentElement)
+    .getPropertyValue('--evidence1-color')
+    .trim()
+
+  w('correctColor: ', correctColor)
+  w('wrongColor: ', wrongColor)
   // il grafico disegna prima quelle sbagliate che stanno sulla destra
   // quindi quelle corrette che stabbo sulla sinistra
   drawGraphic(
     'myDoughnutChart',
-    percentageWrong,
     percentageCorrect,
-    wrongColor,
-    correctColor
+    percentageWrong,
+    correctColor,
+    wrongColor
   )
 }
 
@@ -263,6 +268,9 @@ const divMessage = document.getElementById('divMessage')
 //individua la sezione lastSection
 const lastSection = document.getElementById('lastSection')
 
+// Definisce il tema della pagina che altro non è che il topi tutto minuscolo
+const theme = topic.toLowerCase()
+
 //
 // ***********************************************************************
 //
@@ -271,25 +279,33 @@ const lastSection = document.getElementById('lastSection')
 // ***********************************************************************
 //
 
-// w('questionsAndAnswers: ', questionsAndAnswers)
+// Utilizzo l'emento on load per far partire il codice solo dopo che la pagina
+//  è stata caricata totalmente
+window.onload = () => {
+  // Controlla se il tema è corretto e nel caso lo attiva
+  checkTheme(theme)
 
-addEventListener.onload = calculateResultsAndBuildTable()
+  // Disegna il link alla home in fomdo alla pagina
+  placeHomeLink()
 
-// Assegna l'avanzamento pagina al click sul pulsante
-document.getElementById('trasparent').addEventListener('click', () => {
-  location.href = 'feedbackPage.html'
-})
+  addEventListener.onload = calculateResultsAndBuildTable()
 
-divMessage.innerHTML = `
+  // Assegna l'avanzamento pagina al click sul pulsante
+  document.getElementById('trasparent').addEventListener('click', () => {
+    location.href = 'feedbackPage.html'
+  })
+
+  divMessage.innerHTML = `
     Hai risposto correttamente a ${correctAnswers} domande su ${totalQuestions}.<br/>
     <span class="fucsiaColor">Clicca per vedere i risultati dettagliati</span>.
     `
-divMessage.style.cursor = 'pointer'
+  divMessage.style.cursor = 'pointer'
 
-divMessage.addEventListener('click', () => {
-  if (lastSection.style.display === 'block') {
-    lastSection.style.display = 'none'
-    return
-  }
-  lastSection.style.display = 'block'
-})
+  divMessage.addEventListener('click', () => {
+    if (lastSection.style.display === 'block') {
+      lastSection.style.display = 'none'
+      return
+    }
+    lastSection.style.display = 'block'
+  })
+}
