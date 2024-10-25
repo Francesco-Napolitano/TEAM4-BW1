@@ -208,21 +208,23 @@ const calculateResultsAndBuildTable = () => {
     document.getElementById('wrongAnswers').style.color =
       'var(--evidence0-color)'
   }
+}
 
+const placeTheGraficOnThePage = () => {
   // Legge la variabile dallo stylesheet e la usa per colorare il grafico
   // la funzione del vgrafico non legge le variabili CSS
   // https://stackoverflow.com/questions/41725725/access-css-variable-from-javascript
 
-  let correctColor = getComputedStyle(document.documentElement)
-    .getPropertyValue('--evidence2-color')
-    .trim()
+  // let correctColor = getComputedStyle(document.documentElement)
+  //   .getPropertyValue('--evidence2-color')
+  //   .trim()
 
-  let wrongColor = getComputedStyle(document.documentElement)
-    .getPropertyValue('--evidence1-color')
-    .trim()
+  // let wrongColor = getComputedStyle(document.documentElement)
+  //   .getPropertyValue('--evidence1-color')
+  //   .trim()
 
-  w('correctColor: ', correctColor)
-  w('wrongColor: ', wrongColor)
+  w('placeTheGraficOnThePage() correctColor: ', correctColor)
+  w('placeTheGraficOnThePage() wrongColor: ', wrongColor)
   // il grafico disegna prima quelle sbagliate che stanno sulla destra
   // quindi quelle corrette che stabbo sulla sinistra
   drawGraphic(
@@ -288,7 +290,23 @@ window.onload = () => {
   // Disegna il link alla home in fomdo alla pagina
   placeHomeLink()
 
-  addEventListener.onload = calculateResultsAndBuildTable()
+  calculateResultsAndBuildTable()
+  switch (theme) {
+    case 'html, css, js':
+      correctColor = '#00ffff'
+      wrongColor = '#d20094'
+      break
+    case 'cucina':
+      correctColor = '#2ecc71'
+      wrongColor = '#e74c3c'
+      break
+    case 'geografia':
+      correctColor = '#96cc02'
+      wrongColor = ' #2980b9'
+      break
+  }
+
+  placeTheGraficOnThePage()
 
   // Assegna l'avanzamento pagina al click sul pulsante
   document.getElementById('trasparent').addEventListener('click', () => {

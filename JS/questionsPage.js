@@ -24,7 +24,7 @@ function escapeHTML(text) {
 // Funzione che selezione casualmente un numero di domande dall'array di domande
 const selectQuestions = (
   questionsArray,
-  numberOfQuestions,
+  numberOfQuestionsFn,
   topic,
   difficulty
 ) => {
@@ -32,16 +32,19 @@ const selectQuestions = (
   const questionsSelected = []
 
   // Crea un array di domande che hanno l'argomento e il livello di difficoltà richiesti
-  const preSelectionArray = questionsArray.filter(
-    (question) => question.topic === topic && question.difficulty === difficulty
-  )
+  const preSelectionArray = questionsArray.filter((question) => {
+    return question.topic === topic && question.difficulty === difficulty
+  })
 
+  w('selectQuestions() preSelectionArray: ', preSelectionArray)
+  w('selectQuestions() preSelectionArray.length: ', preSelectionArray.length)
   // Esegue un'estrazione randomica delle domande dall'array preSelectionArray
   // estrae un numero di domanda pera a quelle richieste o, se inferiore, pari al numero delle domande
   // nell'array delle domande preselzezionate
+  const preSelectionArrayLength = preSelectionArray.length
   for (
     let i = 0;
-    i < Math.min(numberOfQuestions, preSelectionArray.length);
+    i < Math.min(numberOfQuestionsFn, preSelectionArrayLength);
     i++
   ) {
     // Ricalcola la lunghezza dell'array perché ad ogni cliclo viene eliminato un elemento
@@ -52,6 +55,10 @@ const selectQuestions = (
     // Elimina la domanda selezionata dall'array delle domande preselezionate
     preSelectionArray.splice(randomIndex, 1)
   }
+  // Ridimensiono il numero delle domande in base a quelle effettivamente selezionate dall'array
+  // Faccio questo perché nell'array potrebbero esserci meno domande di quelle richieste
+  numberOfQuestions = questionsSelected.length
+
   w(questionsSelected)
   return questionsSelected
 }
@@ -224,8 +231,9 @@ const buttonListener = (checkAnswerBeforeGoAhead) => {
   // Verifica se la domanda corrente è l'ultima in base alle domande richieste o in base alla grandezza dell'array
   // delle domande selezionate dal pool
   if (
-    currentQuestionIndex === selectedQuestionsArray.lenght - 1 ||
-    currentQuestionIndex === numberOfQuestions - 1
+    // currentQuestionIndex === selectedQuestionsArray.lenght - 1 ||
+    currentQuestionIndex ===
+    numberOfQuestions - 1
   ) {
     // se è l'ultima domanda salva le risposte date dall'utente
     // e reindirizza alla pagina dei risultati
@@ -278,7 +286,7 @@ const checkActivation = () => {
 //
 
 // Indica il numero delle domande del survey
-const numberOfQuestions = 5
+let numberOfQuestions = 15
 
 // currentQuestionIndex è l'indice della domanda corrente
 let currentQuestionIndex = 0
