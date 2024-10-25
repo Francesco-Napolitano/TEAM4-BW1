@@ -322,5 +322,7 @@ window.onload = () => {
       return
     }
     lastSection.style.display = 'block'
+    lastSection.scrollIntoView()
+    // window.scrollBy(0, 450)
   })
 }

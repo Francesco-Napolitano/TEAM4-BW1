@@ -286,7 +286,7 @@ const checkActivation = () => {
 //
 
 // Indica il numero delle domande del survey
-let numberOfQuestions = 15
+let numberOfQuestions = 9
 
 // currentQuestionIndex è l'indice della domanda corrente
 let currentQuestionIndex = 0

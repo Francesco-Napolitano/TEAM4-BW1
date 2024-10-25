@@ -4,7 +4,10 @@
   --evidence1-color: #d20094;
   --evidence2-color: #00ffff;
 }
-
+html,
+body {
+  scroll-behavior: smooth;
+}
 body {
   background-image: url(/assets/img/bg.jpg);
   background-size: cover;
