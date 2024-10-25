@@ -1,6 +1,6 @@
 :root {
   --text-color: #4a4a4a; /* Grigio scuro per il testo */
-  --evidence0-color: #f39c12; /* Giallo dorato per il testo evidenziato */
+  --evidence0-color: #ce5b0e; /* Giallo dorato per il testo evidenziato */
   --evidence1-color: #d35400; /* Arancione scuro per i titoli */
   --evidence2-color: #e74c3c; /* Rosso per il grafico */
   --evidence3-color: #2ecc71; /* Verde per il grafico */
@@ -48,6 +48,11 @@ img#themeIcon {
   -webkit-transition-property: all;
   -webkit-transition-duration: 0.3s;
   -webkit-transition-timing-function: ease;
+}
+
+#textualAnswer {
+  color: var(--evidence4-color);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 #correctAnswers,

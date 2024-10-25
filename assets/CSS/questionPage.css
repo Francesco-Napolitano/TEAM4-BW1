@@ -7,11 +7,14 @@ h1 span {
 }
 
 #content {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  /* border: 1px solid var(--evidence1-color); */
 }
 
 #questionImage,
 #textualAnswer {
+  /* border: 1px solid var(--evidence1-color); */
   display: inline-block;
   vertical-align: top;
   text-align: left;
@@ -24,7 +27,11 @@ h1 span {
 }
 
 #textualAnswer {
-  margin: 0 2rem;
+  width: 400px;
+  margin-left: 2rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .questionAnswers {

@@ -36,6 +36,11 @@ img#themeIcon {
   -webkit-transition-timing-function: ease;
 }
 
+#textualAnswer {
+  background-color: unset;
+  border: 1px solid var(--evidence1-color);
+}
+
 th {
   font-weight: 900;
 }

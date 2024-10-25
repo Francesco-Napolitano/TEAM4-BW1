@@ -287,9 +287,6 @@ window.onload = () => {
   // Controlla se il tema è corretto e nel caso lo attiva
   checkTheme(theme)
 
-  // Disegna il link alla home in fomdo alla pagina
-  placeHomeLink()
-
   calculateResultsAndBuildTable()
   switch (theme) {
     case 'html, css, js':

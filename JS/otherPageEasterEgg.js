@@ -40,13 +40,3 @@ const checkTheme = (theme) => {
     divLogo.appendChild(image)
   }
 }
-
-// Piazza il link all ahome page in fondo alla pagina
-const placeHomeLink = () => {
-  // Mette il link per tornare in home page
-  const home = document.createElement('a')
-  home.href = './welcomePage.html'
-  home.id = 'homeAnchor'
-  home.innerHTML = 'Back to Welcome Page'
-  lastSection.appendChild(home)
-}

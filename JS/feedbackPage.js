@@ -59,9 +59,6 @@ window.onload = () => {
   // Controlla se il tema è corretto e nel caso lo attiva
   checkTheme(theme)
 
-  // Disegna il link alla home in fomdo alla pagina
-  placeHomeLink()
-
   // Attiva il check del clieck sulle stessline
   stars.addEventListener('click', (e) => {
     // Rimuove il colore da tutte le stelline
@@ -87,5 +84,12 @@ window.onload = () => {
       nextQuestionButton.disabled = true
       nextQuestionButton.classList.remove('activatedButton')
     }
+  })
+
+  // Attiva l'emet listenser per il click sul bottone
+  nextQuestionButton.addEventListener('click', () => {
+    nextQuestionButton.disabled === false
+      ? (document.location.href = 'welcomePage.html')
+      : {}
   })
 }
